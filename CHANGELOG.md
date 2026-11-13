@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.0](https://github.com/kasify-eu/kasify/compare/kasify-v0.9.1...kasify-v0.10.0) (2026-11-13)
+
+
+### Features
+
+* initial release ([62f924e](https://github.com/kasify-eu/kasify/commit/62f924ee49f95cd80fb6173af41a51083dcc79cb))
+
 ## [0.9.1](https://github.com/kasify-eu/kasify/compare/kasify-v0.9.0...kasify-v0.9.1) (2026-10-25)
 
 
