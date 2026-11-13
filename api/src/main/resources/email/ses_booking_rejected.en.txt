@@ -1,0 +1,26 @@
+A booking could not be registered with SES Hospedajes
+
+The Spanish guest registry (SES Hospedajes) rejected a submission for a
+booking at {{property_name}} because of a problem with the submitted data.
+
+Error reported by SES
+--------------------------
+{{error_message}}
+
+Affected booking
+--------------------------
+Property:       {{property_name}}
+Booking:        {{guest_name}}
+Dates:          {{booking_from}} -> {{booking_to}}
+Communication:  {{communication_type_label}}
+
+Review the booking and its guests' details (document, support number, second
+surname, contact details…) and fix what the error points at. As soon as you
+save the correction, Kasify will retry the registration automatically within
+the hour.
+
+Review the booking: {{booking_url}}
+
+— The Kasify team
+
+You are receiving this email because you own this Kasify account.

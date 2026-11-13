@@ -1,0 +1,98 @@
+<configuration>
+    <!-- Console appender for app logs: short timestamp, colored level, no HTTP MDC noise.
+         %highlight / %cyan emit ANSI codes that the IntelliJ Run console renders as colors. -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan(%logger{20}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Console appender used by the HTTP request logger so req_id/user stay correlated on screen. -->
+    <appender name="STDOUT_REQ" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} %highlight(%-5level) %cyan(%logger{20}) [req=%X{request_id:-}] [user=%X{user_id:-}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Structured JSON console appender. Opt in by setting LOG_ROOT_APPENDER=JSON_STDOUT
+         (and LOG_REQ_APPENDER=JSON_STDOUT for HTTP logs) — see api/CLAUDE.md. -->
+    <appender name="JSON_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <includeMdcKeyName>request_id</includeMdcKeyName>
+            <includeMdcKeyName>user_id</includeMdcKeyName>
+            <includeMdcKeyName>client_ip</includeMdcKeyName>
+            <includeMdcKeyName>http_method</includeMdcKeyName>
+            <includeMdcKeyName>http_status</includeMdcKeyName>
+            <includeMdcKeyName>request_uri</includeMdcKeyName>
+            <includeMdcKeyName>integration_id</includeMdcKeyName>
+            <includeMdcKeyName>property_id</includeMdcKeyName>
+            <includeMdcKeyName>fire_id</includeMdcKeyName>
+            <includeMdcKeyName>booking_id</includeMdcKeyName>
+            <includeMdcKeyName>lote</includeMdcKeyName>
+            <customFields>{"service":"kasify-api","env":"${ENVIRONMENT:-development}"}</customFields>
+            <fieldNames>
+                <timestamp>ts</timestamp>
+                <message>msg</message>
+                <logger>logger</logger>
+                <thread>thread</thread>
+                <levelValue>[ignore]</levelValue>
+            </fieldNames>
+        </encoder>
+    </appender>
+
+    <!-- Rolling file appender for production logging -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/kasify-api.log</file>
+        <encoder>
+            <!-- JSON-like format for easier parsing -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} req_id=%X{request_id:-none} user_id=%X{user_id:-anonymous} client_ip=%X{client_ip:-} http_method=%X{http_method:-} http_status=%X{http_status:-} uri=%X{request_uri:-} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover -->
+            <fileNamePattern>logs/kasify-api.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- Keep 30 days of logs -->
+            <maxHistory>30</maxHistory>
+            <!-- Max 1GB total -->
+            <totalSizeCap>1GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Separate appender for request/response logs -->
+    <appender name="ACCESS_LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/kasify-access.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %X{request_id:-none} %X{client_ip:--} %X{user_id:-anonymous} %X{http_method} %X{request_uri} %X{http_status} %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/kasify-access.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>90</maxHistory>
+            <totalSizeCap>2GB</totalSizeCap>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Separate logger for access logs -->
+    <logger name="io.ktor.server.plugins.calllogging.CallLogging" level="INFO" additivity="false">
+        <appender-ref ref="ACCESS_LOG"/>
+        <appender-ref ref="${LOG_REQ_APPENDER:-STDOUT_REQ}"/>
+    </logger>
+
+    <!-- Application loggers: follow LOGBACK_LEVEL (same default as root) so that LOGBACK_LEVEL=INFO
+         in production also drops the app's DEBUG lines instead of pinning them on. -->
+    <logger name="eu.kasify" level="${LOGBACK_LEVEL:-DEBUG}"/>
+
+    <!-- Third-party library loggers (reduce noise) -->
+    <logger name="org.eclipse.jetty" level="INFO"/>
+    <logger name="io.netty" level="INFO"/>
+    <logger name="org.postgresql" level="WARN"/>
+    <logger name="com.zaxxer.hikari" level="INFO"/>
+    <logger name="org.jetbrains.exposed" level="INFO"/>
+    <logger name="Exposed" level="INFO"/>
+    <logger name="org.quartz" level="WARN"/>
+
+    <!-- Root logger - default level based on environment -->
+    <!-- In production, set to INFO via environment variable: LOGBACK_LEVEL=INFO -->
+    <root level="${LOGBACK_LEVEL:-DEBUG}">
+        <appender-ref ref="${LOG_ROOT_APPENDER:-STDOUT}"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</configuration>

@@ -1,0 +1,45 @@
+---
+title: Roles and permissions
+---
+
+Kasify uses **property-level roles**. The role determines what information a user can see and what actions they can perform on a given property. Roles are assigned when you invite someone to a property and, where relevant, are combined with a **service** that describes the type of work the person performs.
+
+## Access levels
+
+| Role | Booking visibility | Guest personal data | Tasks | Write operations |
+|---|---|---|---|---|
+| **Owner** | Full | Yes | All | All |
+| **Manager** | Full | Yes | All | Partial |
+| **Staff** | Full | No | Assigned, scoped by service | Task-scoped |
+| **Contractor** | None | No | Only the ones assigned | Task-scoped |
+
+### Owner
+The person who created the account. Holds full control over the account, properties, integrations, billing, and team members. Some account-level sensitive fields are visible only to the owner.
+
+### Manager
+A trusted person who helps operate one or more properties. Sees every booking — including guest personal data — manages tasks, and can perform most write operations on the properties they have access to. Cannot see fields that are exclusive to the owner, such as global account settings or billing details.
+
+### Staff
+A regular team member — for example, an in-house cleaner or technician. Sees every booking for the properties they've been invited to, but **without guest personal data** (names, contact info, documents). Works on the tasks assigned to them based on their service.
+
+### Contractor
+An external collaborator with the most restricted access. **Cannot see the booking list**: they only have access to the tasks they've been explicitly assigned. For cleaning tasks, they receive the minimum context from the related booking (dates, guest count, instructions) — never the guest's personal data.
+
+## Property services
+
+For **Staff** and **Contractor** roles, you assign a **service** alongside the access level to define the type of work they perform on a given property:
+
+| Service | Description |
+|---|---|
+| **Cleaning** | Turnover cleaning, linen rotation, restocking |
+| **Maintenance** | Repairs, inspections, fixture replacement |
+| **Pool** | Pool maintenance |
+| **Gardening** | Outdoor and landscaping work |
+
+**Manager** roles don't carry a service — their access spans every area of the property.
+
+## How roles are assigned
+
+Roles are granted through **per-property invitations**. From the team section of each property you can invite a person, specify their access level and, if applicable, their service. The invitee receives a link, creates their account, and is linked to the property with the defined permissions.
+
+The same person can hold different roles on different properties.

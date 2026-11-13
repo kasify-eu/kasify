@@ -1,0 +1,337 @@
+/* Kasify month-grid calendar (V2). Self-contained palette to stay decoupled
+   from Mantine's tokens, like calendar-timeline. */
+.wrap {
+  --kf-line: oklch(0.92 0.004 270);
+  --kf-line-2: oklch(0.95 0.003 270);
+  --kf-fill: oklch(0.975 0.004 270);
+  --kf-ink: oklch(0.18 0.01 270);
+  --kf-ink-2: oklch(0.38 0.01 270);
+  --kf-ink-3: oklch(0.55 0.008 270);
+  --kf-ink-4: oklch(0.72 0.006 270);
+
+  border: 1px solid var(--kf-line);
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--kf-ink);
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--kf-line);
+  background: var(--kf-fill);
+}
+.wd {
+  padding: 10px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kf-ink-3);
+  border-right: 1px solid var(--kf-line-2);
+}
+.wd:last-child {
+  border-right: 0;
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+}
+.week {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-bottom: 1px solid var(--kf-line-2);
+}
+.week:last-child {
+  border-bottom: 0;
+}
+
+.cell {
+  border-right: 1px solid var(--kf-line-2);
+  padding: 6px 8px;
+  position: relative;
+  min-width: 0;
+}
+.cell:last-child {
+  border-right: 0;
+}
+.cell[data-out="true"] {
+  background: oklch(0.985 0.003 270);
+}
+.cell[data-out="true"] .num {
+  opacity: 0.4;
+}
+.cell[data-weekend="true"] {
+  background: oklch(0.99 0.003 270);
+}
+.cell[data-out="true"][data-weekend="true"] {
+  background: oklch(0.97 0.003 270);
+}
+.cell[data-today="true"],
+.cell[data-today="true"][data-weekend="true"] {
+  background: oklch(0.965 0.04 95);
+}
+
+.cellClickable {
+  cursor: pointer;
+}
+.cellClickable:hover {
+  box-shadow: inset 0 0 0 2px var(--kf-line-2);
+}
+.cellAdd {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--kf-ink-2, oklch(0.5 0.02 270));
+  background: var(--kf-fill, oklch(0.96 0.005 270));
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+}
+.cellClickable:hover .cellAdd,
+.cellClickable:focus-visible .cellAdd {
+  opacity: 1;
+}
+
+.num {
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.num span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.today {
+  background: var(--kf-ink);
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+.monthLbl {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--kf-ink-3);
+}
+
+/* Reservation bar — biggest visual weight */
+.bar {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 8px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  background: #fff;
+}
+.bar:hover {
+  filter: brightness(0.97);
+}
+.bar[data-start="false"] {
+  padding-left: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-width: 0;
+}
+.bar[data-end="false"] {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-width: 0;
+}
+.barEdge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+.barChannel {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.barGuest {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.barMeta {
+  font-weight: 500;
+  opacity: 0.7;
+  font-variant-numeric: tabular-nums;
+}
+.barCont {
+  font-weight: 500;
+  opacity: 0.55;
+  font-style: italic;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Multi-day task bar */
+.taskBar {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 0 6px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0) 4px,
+    rgba(255, 255, 255, 0.45) 4px,
+    rgba(255, 255, 255, 0.45) 6px
+  );
+}
+.taskBar:hover {
+  filter: brightness(0.96);
+}
+.taskBar[data-start="false"] {
+  padding-left: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left-width: 0;
+}
+.taskBar[data-end="false"] {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right-width: 0;
+}
+.taskBarEdge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+.taskBarLbl {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Single-day task chip */
+.taskChip {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 0 6px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+.taskChip:hover {
+  filter: brightness(0.96);
+}
+.taskChipEdge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+.taskChipDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.taskChipLbl {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Multi-task day pill (bucket) */
+.taskPill {
+  position: absolute;
+  background: #fff;
+  border: 1px dashed var(--kf-line);
+  border-radius: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--kf-ink-2);
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+.taskPill:hover {
+  border-color: var(--kf-ink-3);
+  color: var(--kf-ink);
+}
+.taskPillNum {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.taskPillDots {
+  display: inline-flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.taskPillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+}
+
+.empty {
+  padding: 48px 16px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--kf-ink-3);
+}

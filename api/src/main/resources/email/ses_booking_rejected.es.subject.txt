@@ -1,0 +1,1 @@
+No se pudo registrar una reserva en SES Hospedajes — {{property_name}}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>You're invited to Kasify</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111;-webkit-font-smoothing:antialiased;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f6;padding:40px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;padding:40px;max-width:560px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+            <tr>
+              <td style="padding-bottom:32px;">
+                <span style="font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#8b8b92;">Kasify</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:24px;font-weight:700;line-height:1.25;padding-bottom:12px;color:#0f0f11;">
+                You've been invited to {{property_name}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:28px;">
+                <strong>{{inviter_name}}</strong> added you to <strong>{{property_name}}</strong> as
+                <strong>{{access_level_label}}</strong>. Accept the invitation to start collaborating on bookings, tasks, and smart locks.
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:32px;">
+                <a href="{{accept_url}}"
+                   style="display:inline-block;background:#0f0f11;color:#ffffff;text-decoration:none;padding:14px 28px;border-radius:10px;font-weight:600;font-size:15px;letter-spacing:0.2px;">
+                  Accept invitation
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 0 8px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                    <td align="center" style="padding:0 12px;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#9a9aa1;white-space:nowrap;">
+                      or use this code
+                    </td>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.6;color:#3a3a40;padding:24px 0 16px 0;">
+                Sign in to Kasify at
+                <a href="{{dashboard_url}}" style="color:#0366d6;text-decoration:none;">{{dashboard_url}}</a>,
+                open <strong>Properties</strong>, choose <em>Join a property</em>, and paste this code:
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding:4px 0 28px 0;">
+                <div style="display:inline-block;background:#f4f4f6;border:1px solid #e5e5e8;border-radius:10px;padding:14px 22px;font-family:'SFMono-Regular',ui-monospace,Menlo,Consolas,monospace;font-size:20px;font-weight:600;letter-spacing:3px;color:#0f0f11;">
+                  {{invitation_code}}
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;color:#8b8b92;line-height:1.55;padding-top:8px;border-top:1px solid #ececee;">
+                Button not working? Paste this link into your browser:<br />
+                <a href="{{accept_url}}" style="color:#0366d6;word-break:break-all;">{{accept_url}}</a>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;color:#8b8b92;line-height:1.55;padding-top:20px;">
+                If you weren't expecting this invitation you can safely ignore this message.
+              </td>
+            </tr>
+          </table>
+          <div style="font-size:11px;color:#9a9aa1;padding-top:16px;">
+            You're receiving this because you were invited to {{property_name}} on Kasify.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+---
+title: Resolver problemas con los envíos a SES Hospedajes
+navigation_label: Solución de problemas
+---
+
+Kasify comunica tus registros de viajeros a SES Hospedajes automáticamente. La mayoría de los envíos pasan sin que tengas que intervenir; esta página explica qué hacer cuando uno no pasa.
+
+## Cómo avanza un envío
+
+SES no acepta ni rechaza un registro en un solo paso. Kasify entrega el registro a la plataforma del Ministerio, SES lo encola, lo procesa y solo entonces emite un veredicto. Kasify sigue todo el recorrido y lo muestra como un estado en la reserva:
+
+| Estado en Kasify | Qué está ocurriendo |
+|---|---|
+| **Pendiente** | El registro está en cola en SES, a la espera de ser procesado. |
+| **Procesando** | SES está revisando los datos. Normalmente tarda minutos, pero puede alargarse si la plataforma está saturada. |
+| **Aceptado** | El registro está presentado. No queda nada por hacer. |
+| **Rechazado** | SES ha rechazado el registro. El motivo aparece junto al estado — el resto de esta página explica cómo actuar. |
+
+Solo **Aceptado** significa que la obligación legal está cumplida. Si el registro de una reserva se queda en cualquier otro estado, no lo pierdas de vista.
+
+## Paso 1 — ¿Es la conexión o son los datos?
+
+Un rechazo tiene una de estas dos causas, y distinguirlas es inmediato:
+
+- **Fallan todos los envíos, de todas las reservas** → el problema está en la configuración de tu cuenta SES en Kasify. Empieza por [la lista de comprobación de conexión](#paso-2--revisa-tu-conexión-con-ses).
+- **Falla una reserva concreta y las demás pasan** → el problema está en los datos de esa reserva o de sus huéspedes. Ve directamente a [qué valida SES](#paso-3--repasa-qué-valida-ses).
+
+## Paso 2 — Revisa tu conexión con SES
+
+Kasify se identifica ante SES con tres valores que deben proceder del *mismo* registro SES: tu **código de arrendador**, tu **usuario de servicio web** y tu **contraseña de servicio web**. Si cualquiera de los tres no encaja, SES devuelve todos los envíos sin llegar a mirar a los huéspedes.
+
+Repasa estas comprobaciones en orden:
+
+1. **El tipo de credenciales correcto.** SES te da dos accesos distintos: el acceso con Cl@ve o certificado que usas en el navegador, y un usuario específico de *servicio web* para programas como Kasify. Kasify necesita el segundo. Si nunca lo creaste, entra en la configuración de tu cuenta en [hospedajes.ses.mir.es](https://hospedajes.ses.mir.es) y activa *Envío de comunicaciones por servicio web* — es en ese momento cuando SES genera las credenciales de servicio web. (Saltarse este paso es el problema de configuración más habitual; SES lo señala con el error `10120`.)
+2. **El código de arrendador, carácter a carácter.** Es un identificador de 10 caracteres y SES lo compara literalmente — basta un cero inicial de menos para que SES no te encuentre (error `10103`).
+3. **El trío coherente.** Si gestionas varios registros en SES, comprueba que el código y las credenciales que has puesto en Kasify pertenecen al mismo. Un usuario válido con el código de arrendador de otro registro también falla (errores `10103`/`10107`).
+4. **El establecimiento dado de alta.** El código de establecimiento de la propiedad debe existir dentro de tu registro. Lo encontrarás en la sección *Establecimientos* del portal SES; cópialo en la configuración SES de la propiedad en Kasify. Si SES responde *"No existe un establecimiento para ese código"*, este es el valor que hay que corregir.
+5. **La actividad permitida.** SES solo acepta los tipos de comunicación que cubre tu alta. Si SES indica que tu arrendador no puede realizar ese tipo de comunicaciones (`10119`), revisa los datos de tu actividad en el portal o consulta al soporte de SES.
+
+Dos respuestas de SES merecen mención aparte porque la reacción correcta *no* es corregir nada:
+
+- **`10121`** — SES suele responder esto cuando considera que **ya tiene ese envío**. Reenviar lo mismo otra vez no ayuda; comprueba antes en Kasify el estado del envío anterior.
+- **`10999`** — un fallo interno de la plataforma del Ministerio. Tus datos y tu configuración están bien. Kasify reintenta por su cuenta; si el error se repite durante horas, la vía de escalado es el soporte de SES (`ses.hospedajes@interior.es`).
+
+Cualquier otra respuesta que se reduzca a un número de error suele ser un fallo técnico del propio envío — escribe al soporte de Kasify y lo investigamos.
+
+## Paso 3 — Repasa qué valida SES
+
+Si la conexión está bien, un rechazo significa que algún campo del registro no ha superado las comprobaciones del Ministerio. SES aplica un conjunto fijo de reglas; conocerlas te permite corregir la ficha de una vez en lugar de encadenar rechazos con la plataforma.
+
+**Los documentos españoles tienen requisitos extra.** Un huésped registrado con DNI o NIE debe llevar **los dos apellidos** y además el **número de soporte** — el código alfanumérico corto (p. ej. `AAA123456`) impreso en el reverso de la tarjeta, que *no* es el número del DNI. Escríbelo limpio: sin espacios ni guiones. Y solo pueden usar DNI o NIE los huéspedes que de verdad los tienen; un visitante extranjero se registra con su **pasaporte**, aunque haya vivido en España.
+
+**Todo huésped debe poder ser contactado.** Tiene que constar al menos un teléfono o un correo electrónico.
+
+**Las direcciones se cruzan entre sí.** En direcciones españolas, el código postal debe tener cinco dígitos y corresponder de verdad al municipio seleccionado. En direcciones extranjeras, elige el país de la lista — SES trabaja con sus propios códigos de país de tres letras y Kasify traduce tu selección automáticamente.
+
+**Los menores deben ir vinculados a un adulto.** Cualquier menor de 18 años del grupo necesita un **parentesco** declarado con uno de los adultos acompañantes. Los menores de 14 no presentan documento — la declaración de parentesco es precisamente lo que lo sustituye.
+
+**La reserva también se valida.** La entrada debe ser anterior a la salida, el número de viajeros debe cuadrar con los huéspedes registrados, y el **medio de pago** debe estar declarado — un registro sin él se rechaza.
+
+En todos los casos la solución es la misma: abre la ficha del huésped (o la reserva) en Kasify, corrige el campo que señala el mensaje de rechazo y deja que Kasify reenvíe.
+
+## Reenvíos: cómo reintenta Kasify
+
+- **Cuando editas los datos**, Kasify vuelve a recoger la reserva automáticamente — no hace falta pulsar nada.
+- **Los datos sin cambios no se reenvían.** SES ya los juzgó; mandar una copia idéntica solo produciría el mismo rechazo, así que Kasify espera a que haya un cambio real.
+- **Los fallos temporales** (cortes de red, caídas de SES) son distintos: esos se reintentan solos hasta que entran.
+- Si quieres forzarlo, la sección SES de la reserva tiene un **reenvío manual**.
+
+## Corregir un registro que SES ya aceptó
+
+Los registros aceptados quedan congelados en Kasify: la ley obliga a conservar lo presentado sin cambios durante tres años, así que la edición de huéspedes se bloquea en cuanto la presentación tiene éxito. Las correcciones se hacen en el lado del Ministerio — entra en el portal SES, abre **Mis Comunicaciones**, localiza la comunicación en la pestaña **Lotes** usando el código de lote que Kasify muestra en el envío (los correos de aviso de SES también lo citan) y corrige allí los datos.
+
+## Cuando la plataforma SES está caída
+
+Las caídas se manifiestan como envíos que se quedan en **Pendiente**/**Procesando** o que fallan con errores temporales. No hay nada que arreglar por tu parte: Kasify sigue reintentando, y la ventana legal de 24 horas cuenta desde que la plataforma vuelve a funcionar, no desde que se rompió.

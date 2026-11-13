@@ -1,0 +1,5 @@
+✅ Check-in completed for {{property_name}}
+
+All expected guests for {{guest_name}}'s booking ({{checkin_from}} → {{checkin_to}}, {{guests_count}} guest(s)) have registered. Guest check-in is now complete.
+
+View the booking at {{dashboard_url}}.

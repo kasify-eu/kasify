@@ -1,0 +1,80 @@
+{
+  "assign_qr_code": false,
+  "first_name": "Kasify-fn",
+  "last_name": "Kasify-ln",
+  "remarks": "remarks",
+  "email": "",
+  "visitor_company": "",
+  "start_time": 1769531624,
+  "end_time": 1769618024,
+  "visit_reason": "Others",
+  "inform_user_ids": [],
+  "nfc_cards": [],
+  "pin_code": "222111",
+  "resources": [
+    {
+      "id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+      "name": "Puerta Exterior",
+      "type": "door"
+    }
+  ],
+  "license_plates": [],
+  "require_check_in": false,
+  "schedule": {
+    "name": "visitor-1769528024242",
+    "schedule_type": "access",
+    "is_private": true,
+    "holiday_timezone": {
+      "name": "holiday 1769528024242",
+      "day_schedule": []
+    },
+    "user_timezone": {
+      "name": "user 1769528024242",
+      "week_schedule": {
+        "0": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "1": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "2": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "3": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "4": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "5": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "6": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ]
+      }
+    },
+    "holiday_group_id": ""
+  }
+}

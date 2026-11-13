@@ -1,0 +1,909 @@
+https://192.168.100.1/proxy/access/api/v2/access_groups/resources?show_door=true&show_elevator_v2=true&show_access_group=true&show_building=true
+
+{
+  "code": 1,
+  "codeS": "SUCCESS",
+  "msg": "success",
+  "error": "",
+  "data": [
+    {
+      "group_name": "All Doors",
+      "group_type": "building",
+      "group_id": "79bb44de-db3e-4952-a976-53af693d059d",
+      "group_configs": null,
+      "group_resources": [
+        {
+          "resource_type": "floor",
+          "resource_id": "d57e449f-f9b9-4c77-831b-ded1757cf9b7",
+          "resource_name": "1F",
+          "resources": [
+            {
+              "resource_type": "door",
+              "resource_id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+              "resource_name": "Puerta Exterior",
+              "resource_extra_type": "UAH"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group_name": "elevator_list",
+      "group_type": "resource",
+      "group_id": "",
+      "group_configs": null,
+      "group_resources": []
+    },
+    {
+      "group_name": "resource_list",
+      "group_type": "resource",
+      "group_id": "",
+      "group_configs": null,
+      "group_resources": [
+        {
+          "resource_type": "floor",
+          "resource_id": "d57e449f-f9b9-4c77-831b-ded1757cf9b7",
+          "resource_name": "1F",
+          "resources": [
+            {
+              "resource_type": "door",
+              "resource_id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+              "resource_name": "Puerta Exterior",
+              "resource_extra_type": "UAH"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+Payload to create visitor
+{
+  "assign_qr_code": false,
+  "first_name": "Test",
+  "last_name": "Test",
+  "remarks": "",
+  "email": "",
+  "visitor_company": "",
+  "start_time": 1760306400,
+  "end_time": 1760565599,
+  "visit_reason": "Others",
+  "inform_user_ids": [],
+  "nfc_cards": [],
+  "pin_code": "025379",
+  "resource": [
+    {
+      "resource_value": "79bb44de-db3e-4952-a976-53af693d059d",
+      "resource_type": "building"
+    }
+  ],
+  "license_plates": [],
+  "require_check_in": false,
+  "schedule_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22"
+}
+
+schedules v1
+{
+	"code": "SUCCESS",
+	"data": [
+		{
+			"holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+			"id": "857a4694-aaa5-4fca-974b-3de5c21896b4",
+			"is_default": true,
+			"name": "Always Access",
+			"status": 1,
+			"type": "access"
+		},
+		{
+			"holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+			"id": "6b5b0dc4-7949-495b-ad8f-07740e985e22",
+			"is_default": false,
+			"name": "Default Site Schedule",
+			"status": 1,
+			"type": "access"
+		}
+	],
+	"msg": "success"
+}
+
+schedules
+https://192.168.100.1/proxy/access/api/v2/schedules?expand[]=week_schedule
+
+{
+  "code": 1,
+  "codeS": "SUCCESS",
+  "msg": "success",
+  "error": "",
+  "data": [
+    {
+      "unique_id": "857a4694-aaa5-4fca-974b-3de5c21896b4",
+      "name": "Always Access",
+      "type": "",
+      "holiday_timezone_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+      "user_timezone_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": true,
+      "is_private": false,
+      "schedule_type": "access",
+      "week_schedule": {
+        "id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "unique_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "name": "Always Access",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": true,
+        "is_default": true
+      },
+      "holiday_schedule": {
+        "holiday_group": {
+          "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+          "name": "No Holidays",
+          "description": "",
+          "holidays": [],
+          "template_name": "",
+          "create_time": "2024-10-11T08:23:24+02:00",
+          "is_default": true,
+          "is_private": false
+        },
+        "holiday_timezone": {
+          "id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "unique_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "name": "Always Access",
+          "description": "",
+          "system": true,
+          "is_default": true,
+          "day_schedule": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "unique_id": "8b1f626a-96e0-4e34-8800-fa2f3b1a8f18",
+      "name": "Always Access Locks",
+      "type": "",
+      "holiday_timezone_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+      "user_timezone_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": true,
+      "is_private": false,
+      "schedule_type": "lock",
+      "week_schedule": {
+        "id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "unique_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "name": "Always Access",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": true,
+        "is_default": true
+      },
+      "holiday_schedule": {
+        "holiday_group": {
+          "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+          "name": "No Holidays",
+          "description": "",
+          "holidays": [],
+          "template_name": "",
+          "create_time": "2024-10-11T08:23:24+02:00",
+          "is_default": true,
+          "is_private": false
+        },
+        "holiday_timezone": {
+          "id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "unique_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "name": "Always Access",
+          "description": "",
+          "system": true,
+          "is_default": true,
+          "day_schedule": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "unique_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22",
+      "name": "Default Site Schedule",
+      "type": "user_entry",
+      "holiday_timezone_id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+      "user_timezone_id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": false,
+      "is_private": false,
+      "schedule_type": "access",
+      "week_schedule": {
+        "id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+        "unique_id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+        "name": "Example property user timezone",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": false,
+        "is_default": false
+      },
+      "holiday_schedule": {
+        "holiday_group": {
+          "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+          "name": "No Holidays",
+          "description": "",
+          "holidays": [],
+          "template_name": "",
+          "create_time": "2024-10-11T08:23:24+02:00",
+          "is_default": true,
+          "is_private": false
+        },
+        "holiday_timezone": {
+          "id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+          "unique_id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+          "name": "Example property holiday timezone",
+          "description": "",
+          "system": false,
+          "is_default": false,
+          "day_schedule": []
+        }
+      }
+    }
+  ]
+}
+
+
+api/v1/developer/access_policies/schedules
+{
+  "code": 1,
+  "codeS": "SUCCESS",
+  "msg": "success",
+  "error": "",
+  "data": [
+    {
+      "unique_id": "857a4694-aaa5-4fca-974b-3de5c21896b4",
+      "name": "Always Access",
+      "type": "",
+      "holiday_timezone_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+      "user_timezone_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": true,
+      "is_private": false,
+      "schedule_type": "access",
+      "week_schedule": {
+        "id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "unique_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "name": "Always Access",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": true,
+        "is_default": true
+      },
+      "holiday_schedule": {
+        "holiday_group": {
+          "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+          "name": "No Holidays",
+          "description": "",
+          "holidays": [],
+          "template_name": "",
+          "create_time": "2024-10-11T08:23:24+02:00",
+          "is_default": true,
+          "is_private": false
+        },
+        "holiday_timezone": {
+          "id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "unique_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "name": "Always Access",
+          "description": "",
+          "system": true,
+          "is_default": true,
+          "day_schedule": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "unique_id": "8b1f626a-96e0-4e34-8800-fa2f3b1a8f18",
+      "name": "Always Access Locks",
+      "type": "",
+      "holiday_timezone_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+      "user_timezone_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": true,
+      "is_private": false,
+      "schedule_type": "lock",
+      "week_schedule": {
+        "id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "unique_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "name": "Always Access",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": true,
+        "is_default": true
+      },
+      "holiday_schedule": {
+        "holiday_group": {
+          "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+          "name": "No Holidays",
+          "description": "",
+          "holidays": [],
+          "template_name": "",
+          "create_time": "2024-10-11T08:23:24+02:00",
+          "is_default": true,
+          "is_private": false
+        },
+        "holiday_timezone": {
+          "id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "unique_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+          "name": "Always Access",
+          "description": "",
+          "system": true,
+          "is_default": true,
+          "day_schedule": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "unique_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22",
+      "name": "Default Site Schedule",
+      "type": "user_entry",
+      "holiday_timezone_id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+      "user_timezone_id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": false,
+      "is_private": false,
+      "schedule_type": "access",
+      "week_schedule": {
+        "id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+        "unique_id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+        "name": "Example property user timezone",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": false,
+        "is_default": false
+      },
+      "holiday_schedule": {
+        "holiday_group": {
+          "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+          "name": "No Holidays",
+          "description": "",
+          "holidays": [],
+          "template_name": "",
+          "create_time": "2024-10-11T08:23:24+02:00",
+          "is_default": true,
+          "is_private": false
+        },
+        "holiday_timezone": {
+          "id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+          "unique_id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+          "name": "Example property holiday timezone",
+          "description": "",
+          "system": false,
+          "is_default": false,
+          "day_schedule": []
+        }
+      }
+    }
+  ]
+}
+
+// create visitor con custom group info
+{
+  "assign_qr_code": false,
+  "first_name": "Test",
+  "last_name": "Test",
+  "remarks": "",
+  "email": "",
+  "visitor_company": "",
+  "start_time": 1761951600,
+  "end_time": 1764543599,
+  "visit_reason": "Others",
+  "inform_user_ids": [],
+  "nfc_cards": [],
+  "pin_code": "001100",
+  "resource": [
+    {
+      "resource_value": "",
+      "resource_type": "access_group",
+      "unique_id": "",
+      "group_info": {
+        "group_name": "visitor_1760625738755",
+        "group_type": "visitor",
+        "group_resources": [
+          {
+            "resource_id": "d57e449f-f9b9-4c77-831b-ded1757cf9b7",
+            "resource_type": "floor",
+            "resources": [
+              {
+                "resource_id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+                "resource_type": "door"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "license_plates": [],
+  "require_check_in": false,
+  "schedule_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22"
+}
+
+// create visitor with all resources
+{
+  "assign_qr_code": false,
+  "first_name": "Test2",
+  "last_name": "Test2",
+  "remarks": "",
+  "email": "",
+  "visitor_company": "",
+  "start_time": 1760565600,
+  "end_time": 1760738399,
+  "visit_reason": "Others",
+  "inform_user_ids": [],
+  "nfc_cards": [],
+  "pin_code": "000111",
+  "resource": [
+    {
+      "resource_value": "79bb44de-db3e-4952-a976-53af693d059d",
+      "resource_type": "building"
+    }
+  ],
+  "license_plates": [],
+  "require_check_in": false,
+  "schedule_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22"
+}
+
+
+// test 1
+{
+  "assign_qr_code": false,
+  "first_name": "Kasify-fn",
+  "last_name": "Kasify-ln",
+  "remarks": "",
+  "email": "",
+  "visitor_company": "",
+  "start_time": 1760701992,
+  "end_time": 1761306792,
+  "visit_reason": "Others",
+  "inform_user_ids": [],
+  "nfc_cards": [],
+  "pin_code": "002211",
+  "resource": [
+    {
+      "resource_value": "79bb44de-db3e-4952-a976-53af693d059d",
+      "resource_type": "building",
+      "unique_id": ""
+    }
+  ],
+  "license_plates": [],
+  "require_check_in": false,
+  "schedule_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22"
+}
+
+// delete visitor
+DELETE TO
+https://192.168.100.1/proxy/access/api/v2/visitor/45b395bc-0e7e-4fee-8574-fde4a65be48d?is_force=true
+
+// create visitor response
+{
+    "code": 1,
+    "codeS": "SUCCESS",
+    "msg": "success",
+    "error": "",
+    "data": {
+        "unique_id": "45b395bc-0e7e-4fee-8574-fde4a65be48d",
+        "inviter_id": "4fdfbbb2-3404-41c0-83ce-75ad1ea0e361",
+        "inviter_name": "John Doe",
+        "first_name": "Test",
+        "last_name": "Test",
+        "avatar": "",
+        "remarks": "",
+        "mobile_phone": "",
+        "area_code": "",
+        "phone_number": "",
+        "email": "",
+        "visitor_company": "",
+        "start_time": 1760565600,
+        "end_time": 1760824799,
+        "timezone": "Europe/Madrid",
+        "schedule_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22",
+        "schedule": {
+            "name": "Default Site Schedule",
+            "unique_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22",
+            "type": "user_entry",
+            "is_default": false,
+            "is_private": false,
+            "holiday_group": {
+                "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+                "name": "No Holidays",
+                "description": "",
+                "holidays": [],
+                "template_name": "",
+                "create_time": "2024-10-11T08:23:24+02:00",
+                "is_default": true,
+                "is_private": false
+            },
+            "user_timezone": {
+                "id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+                "unique_id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+                "name": "Example property user timezone",
+                "description": "",
+                "week_schedule": {
+                    "0": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ],
+                    "1": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ],
+                    "2": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ],
+                    "3": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ],
+                    "4": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ],
+                    "5": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ],
+                    "6": [
+                        {
+                            "start_time": "00:00:00",
+                            "end_time": "23:59:59"
+                        }
+                    ]
+                },
+                "system": false,
+                "is_default": false
+            },
+            "holiday_timezone": {
+                "id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+                "unique_id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+                "name": "Example property holiday timezone",
+                "description": "",
+                "system": false,
+                "is_default": false,
+                "day_schedule": []
+            },
+            "schedule_type": "access"
+        },
+        "visit_reason": "Others",
+        "location_id": "",
+        "nfc_cards": [],
+        "pin_code": {
+            "user_asset_unique_id": "f1e9553b-7a19-4747-8379-3cea63149af2",
+            "user_id": "45b395bc-0e7e-4fee-8574-fde4a65be48d",
+            "user_type": "VISITOR",
+            "pin_code_token": "0000000000000000000000000000000000000000000000000000000000000000",
+            "pin_code_length": 6
+        },
+        "has_qr_code": false,
+        "license_plates": [],
+        "resource": [
+            {
+                "resource_type": "building",
+                "resource_value": "79bb44de-db3e-4952-a976-53af693d059d",
+                "name": "Example property",
+                "door_count": 1
+            }
+        ],
+        "status": 1,
+        "managed_by_other": false,
+        "create_time": 1760710125,
+        "is_send_email": false,
+        "is_send_sms": false,
+        "visit_time": null,
+        "is_print": false,
+        "id_card": "",
+        "photo_path": "",
+        "check_in_at": 0,
+        "require_check_in": false
+    }
+}
+

@@ -1,0 +1,18 @@
+{{member_name}} joined {{property_name}}
+
+{{member_name}} accepted the invitation and now has access to {{property_name}}
+on Kasify as {{access_level_label}}.
+
+Member details
+--------------------------
+Name:  {{member_name}}
+Email: {{member_email}}
+Role:  {{access_level_label}}
+
+Manage your property team in Kasify at {{dashboard_url}}.
+
+If you didn't expect this, you can remove the member from the property settings.
+
+— The Kasify team
+
+You're receiving this because you manage {{property_name}} on Kasify.

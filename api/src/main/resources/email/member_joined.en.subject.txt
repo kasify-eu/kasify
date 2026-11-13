@@ -1,0 +1,1 @@
+{{member_name}} joined {{property_name}} on Kasify

@@ -1,0 +1,70 @@
+---
+title: Configure SES Hospedajes
+navigation_label: Configuration
+---
+
+This page describes how to configure the SES Hospedajes integration in Kasify, what data is submitted, and how to handle submission errors.
+
+## Prerequisites
+
+To use the integration you need:
+
+- To be registered as a **landlord (arrendador)** in SES Hospedajes and have your **arrendador code**.
+- Your SES account credentials (**username** and **password**).
+
+If you're not yet registered in SES Hospedajes, follow [Registering in SES Hospedajes](/en/setup/ses-hospedajes/registration) first — it walks you through the *alta* on the official portal and how to obtain these credentials.
+
+## Connect SES Hospedajes in Kasify
+
+1. In Kasify, open **Integrations** and click **Add integration**.
+2. Pick **SES Hospedajes**.
+3. Fill in **Connection details**:
+
+| Field | Notes |
+|---|---|
+| Arrendador code | Your landlord identifier (max. 10 characters). |
+| SES username | Your SES account username. |
+| SES password | Your SES account password. |
+
+4. Click **Connect**.
+
+If credentials are valid, Kasify saves the integration and takes you to its detail page. The password is stored encrypted and is not shown again.
+
+## What Kasify submits, and when
+
+For each booking, Kasify submits the **booking data plus the guest data required by SES**.
+
+The submission does **not** go out the moment the guest finishes the online check-in. Kasify's submission job runs periodically and picks a booking up when all of the following hold:
+
+- The guests have completed the **online check-in**.
+- The booking's **check-in time has already passed** — Kasify waits a few hours after the scheduled arrival before filing, so late guest corrections still make it into the registry.
+- The booking is confirmed (not cancelled) and its property belongs to an account with an **active SES integration**.
+
+In practice this means the registry is filed a few hours after the arrival time. Kasify keeps trying while the booking is active, up to one day after check-out.
+
+If SES rejects a submission (for example, missing required fields or an invalid document), the error is recorded on the booking so you can fix the data — Kasify resubmits automatically once it changes.
+
+## Edit credentials
+
+1. Open **Integrations → SES Hospedajes**.
+2. Click **Edit**.
+3. Update the fields you need. To keep the existing password, leave it empty.
+4. Click **Save changes**.
+
+## Remove the integration
+
+Clicking **Remove** on the detail page removes the SES connection. This:
+
+- Stops **automatic submission** of guest registries.
+- **Disconnects your SES account** from Kasify (the SES account itself is not modified).
+- Does not affect submissions already sent from Kasify up to that point.
+
+If you reconnect SES later, new submissions resume; previously pending submissions are not retried automatically.
+
+## Troubleshooting
+
+For the full list of SES error codes and how to fix each one, see [SES Hospedajes errors and how to fix them](/en/setup/ses-hospedajes/errors).
+
+- **"Connection error"** on connect: double-check the username and password.
+- **Rejected submissions**: in the booking detail, check which guest field caused the rejection (document, nationality, date of birth) and fix it on the guest record.
+- **Password changes in SES**: if you change your password directly in the SES portal, remember to update it in Kasify via **Edit** too.

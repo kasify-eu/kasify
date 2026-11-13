@@ -1,0 +1,81 @@
+---
+title: Cerraduras inteligentes
+---
+
+Kasify se integra con cerraduras inteligentes para gestionar el acceso de los huéspedes sin entrega manual de llaves. Una vez asignada una cerradura a una propiedad, puedes generar un código de acceso para cada reserva desde el detalle de la propia reserva, vinculado a sus fechas.
+
+Actualmente se soportan dos integraciones:
+
+- **Nuki** (cerraduras Bluetooth/Wi-Fi de Nuki Home Solutions).
+- **Unifi Access** (controladoras de Ubiquiti).
+
+Cada integración se conecta una vez por cuenta y luego se asignan las cerraduras a las propiedades correspondientes.
+
+## Nuki
+
+**1. Crear un token en Nuki**
+
+1. Entra en [web.nuki.io](https://web.nuki.io) con tu cuenta de Nuki.
+2. Abre la sección **API** del menú.
+3. Genera un token nuevo y cópialo. Lo necesitarás solo en este paso de la configuración.
+
+**2. Conectar Nuki en Kasify**
+
+1. En Kasify, abre **Integraciones** y pulsa **Añadir integración**.
+2. Selecciona **Nuki**.
+3. Pega el token en el formulario y pulsa **Conectar**.
+
+Si el token es válido, Kasify llama a la API de Nuki, importa las cerraduras vinculadas a tu cuenta y te lleva a la página de detalle de la integración.
+
+**3. Asignar cerraduras a propiedades**
+
+En la página de detalle de Nuki:
+
+1. Localiza la cerradura que quieres asignar.
+2. Pulsa **Asignar a propiedad** y elige la propiedad en el desplegable.
+3. Pulsa **Asignar cerradura**.
+
+## Unifi Access
+
+**1. Disponer de credenciales del controlador Unifi**
+
+Necesitas tres datos del controlador Unifi (UniFi OS o Network) que gestiona las cerraduras:
+
+- **URL** del controlador (por ejemplo, `https://unifi.tu-dominio.com`).
+- **Usuario** y **contraseña** con permisos sobre Unifi Access. La cuenta debe ser **local** de la Unifi Console con la que trabajas, no una cuenta de Ubiquiti SSO. Al crearla en la consola:
+  - Asígnale el rol **Admin** y marca la casilla **Restrict to Local Access Only**.
+  - Concédele permiso **Full Management** sobre **Unifi Access**.
+
+**2. Conectar Unifi Access en Kasify**
+
+1. Abre **Integraciones** y pulsa **Añadir integración**.
+2. Selecciona **Unifi Access**.
+3. Rellena URL, usuario y contraseña, y pulsa **Conectar**.
+
+Kasify valida las credenciales contra el controlador y, si son correctas, importa las cerraduras visibles desde Unifi Access.
+
+**3. Asignar cerraduras a propiedades**
+
+El flujo es el mismo que para otras cerraduras, en la página de detalle de Unifi:
+
+1. Localiza la cerradura que quieres asignar.
+2. Pulsa **Asignar a propiedad** y elige la propiedad en el desplegable.
+3. Pulsa **Asignar cerradura**.
+
+## Generar códigos de acceso
+
+Los códigos se generan a demanda desde el **detalle de cada reserva**, en el momento en el que decides habilitar el acceso. De este modo puedes revisar la reserva (huésped, fechas, horas) antes de cargar el código en la cerradura.
+
+El código generado es válido **desde la hora de check-in hasta la hora de check-out** indicadas en la reserva. Antes de generarlo, asegúrate de que la reserva tiene actualizadas las horas reales de llegada y salida del huésped: si las cambias después, tendrás que volver a generar el código para que las nuevas franjas tengan efecto.
+
+1. Abre la reserva desde el listado de reservas o desde el calendario de la propiedad.
+2. Comprueba (y ajusta si hace falta) las horas de check-in y check-out del huésped.
+3. Pulsa **Crear códigos de acceso**.
+4. Kasify se comunica con la cerradura asignada a la propiedad y carga un código vinculado a las fechas y horas de la reserva.
+
+Una vez generado, el código aparece en el detalle de la reserva y puedes compartirlo con el huésped (manualmente o a través de los mensajes habituales). El código se queda en la cerradura hasta que termine su periodo de validez.
+
+## Buenas prácticas
+
+- **Comprueba el primer código** generado tras configurar la integración. Asegúrate de que la cerradura está en línea y de que el código se aplica antes de la primera llegada real.
+- **Revoca el token o las credenciales** desde el lado de Nuki / Unifi cuando dejes de usar la integración. Eliminar la integración en Kasify no invalida el token de origen.

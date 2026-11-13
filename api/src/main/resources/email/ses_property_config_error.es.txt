@@ -1,0 +1,32 @@
+SES Hospedajes rechazó el código de establecimiento de {{property_name}}
+
+El registro de viajeros (SES Hospedajes) rechazó un envío de Kasify porque no
+reconoce el código de establecimiento configurado para esta propiedad.
+
+Error comunicado por SES
+--------------------------
+{{error_message}}
+
+Propiedad afectada
+--------------------------
+Propiedad:               {{property_name}}
+Código de establecimiento: {{establishment_code}}
+
+Los envíos al registro de viajeros de ESTA PROPIEDAD quedan EN PAUSA hasta que
+se corrija el código. El resto de tus propiedades sigue enviando con
+normalidad. En cuanto corrijas y guardes el código en Kasify, los envíos
+pendientes se reanudan automáticamente en menos de una hora.
+
+Cómo solucionarlo
+--------------------------
+1. Abre tu portal SES y copia el código de establecimiento
+   (codigoEstablecimiento) exactamente como aparece — lo asigna SES y los
+   ceros iniciales importan.
+2. Asegúrate de que es el código de ESTABLECIMIENTO, no el código de
+   arrendador (codigoArrendador) — confundirlos es la causa más habitual de
+   este error.
+3. Introduce el código corregido de {{property_name}} en Kasify: {{settings_url}}
+
+— El equipo de Kasify
+
+Recibes este correo porque eres titular de esta cuenta en Kasify.

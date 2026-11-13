@@ -1,0 +1,11 @@
+🏠 Te han invitado a {{property_name}}
+
+{{inviter_name}} te añadió a {{property_name}} en Kasify como {{access_level_label}}.
+
+Acepta la invitación:
+{{accept_url}}
+
+O inicia sesión en {{dashboard_url}}, abre Propiedades → "Unirme a una propiedad" e introduce este código:
+{{invitation_code}}
+
+Si no esperabas esta invitación, puedes ignorar este mensaje.

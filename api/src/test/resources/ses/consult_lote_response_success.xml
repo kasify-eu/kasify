@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <ns3:consultaLoteResponse xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+      <respuesta>
+        <codigo>0</codigo>
+        <descripcion>Operacion realizada correctamente</descripcion>
+      </respuesta>
+      <resultado>
+        <lote>a1b2c3d4-e5f6-7890-abcd-ef1234567890</lote>
+        <tipoComunicacion>PV</tipoComunicacion>
+        <tipoOperacion>A</tipoOperacion>
+        <fechaPeticion>2026-05-15 10:00:00</fechaPeticion>
+        <fechaProcesamiento>2026-05-15 10:00:05</fechaProcesamiento>
+        <codigoEstado>0</codigoEstado>
+        <descEstado>Procesado correctamente</descEstado>
+        <identificadorUsuario>user123</identificadorUsuario>
+        <nombreUsuario>Test User</nombreUsuario>
+        <codigoArrendador>0000000001</codigoArrendador>
+        <aplicacion>Kasify</aplicacion>
+        <resultadoComunicaciones>
+          <resultadoComunicacion>
+            <orden>1</orden>
+            <anulada>false</anulada>
+            <codigoComunicacion>comm-uuid-001</codigoComunicacion>
+          </resultadoComunicacion>
+          <resultadoComunicacion>
+            <orden>2</orden>
+            <tipoError>VAL</tipoError>
+            <error>Documento de identidad no valido</error>
+          </resultadoComunicacion>
+        </resultadoComunicaciones>
+      </resultado>
+      <resultado>
+        <lote>b2c3d4e5-f6a7-8901-bcde-f12345678901</lote>
+        <tipoComunicacion>RH</tipoComunicacion>
+        <tipoOperacion>B</tipoOperacion>
+        <fechaPeticion>2026-05-16 11:30:00</fechaPeticion>
+        <fechaProcesamiento>2026-05-16 11:30:02</fechaProcesamiento>
+        <codigoEstado>0</codigoEstado>
+        <descEstado>Procesado correctamente</descEstado>
+        <identificadorUsuario>user123</identificadorUsuario>
+        <nombreUsuario>Test User</nombreUsuario>
+        <codigoArrendador>0000000001</codigoArrendador>
+        <aplicacion>Kasify</aplicacion>
+      </resultado>
+    </ns3:consultaLoteResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,96 @@
+{
+  "assign_qr_code": false,
+  "first_name": "Kasify web",
+  "last_name": "Web",
+  "remarks": "",
+  "email": "",
+  "visitor_company": "",
+  "start_time": 1769468400,
+  "end_time": 1769641199,
+  "visit_reason": "Others",
+  "inform_user_ids": [],
+  "nfc_cards": [],
+  "pin_code": "111122",
+  "resource": [
+    {
+      "resource_value": "",
+      "resource_type": "access_group",
+      "unique_id": "",
+      "group_info": {
+        "group_name": "visitor_1769529204383",
+        "group_type": "visitor",
+        "group_resources": [
+          {
+            "resource_id": "d57e449f-f9b9-4c77-831b-ded1757cf9b7",
+            "resource_type": "floor",
+            "resources": [
+              {
+                "resource_id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+                "resource_type": "door"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "license_plates": [],
+  "require_check_in": false,
+  "schedule": {
+    "name": "visitor-1769529204383",
+    "schedule_type": "access",
+    "is_private": true,
+    "holiday_timezone": {
+      "day_schedule": [],
+      "name": "holiday 1769529204383"
+    },
+    "user_timezone": {
+      "name": "user 1769529204383",
+      "week_schedule": {
+        "0": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "1": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "2": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "3": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "4": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "5": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ],
+        "6": [
+          {
+            "start_time": "00:00:00",
+            "end_time": "23:59:59"
+          }
+        ]
+      }
+    },
+    "holiday_group_id": ""
+  }
+}

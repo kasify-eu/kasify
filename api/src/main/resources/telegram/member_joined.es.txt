@@ -1,0 +1,5 @@
+✅ {{member_name}} se unió a {{property_name}}
+
+{{member_name}} ({{member_email}}) aceptó la invitación y ahora tiene acceso a {{property_name}} como {{access_level_label}}.
+
+Gestiona el equipo de tu propiedad en {{dashboard_url}}.

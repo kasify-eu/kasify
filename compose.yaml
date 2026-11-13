@@ -1,0 +1,73 @@
+# Runs the full stack: PostgreSQL + API + dashboard.
+#
+#   cp .env.example .env     # then fill in your Kinde settings and a new ENCRYPTION_KEY
+#   docker compose up --build
+#
+# Dashboard: http://localhost:3000   API: http://localhost:8080
+name: kasify
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-kasify}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kasify}
+      POSTGRES_DB: ${POSTGRES_DB:-kasify}
+    volumes:
+      - db-data:/var/lib/postgresql/data
+      # Only run on the first start, when the data volume is empty.
+      - ./api/db.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./api/db_geo_seed.sql:/docker-entrypoint-initdb.d/02-geo-seed.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kasify} -d ${POSTGRES_DB:-kasify}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  api:
+    build: ./api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ENVIRONMENT: ${ENVIRONMENT:-production}
+      DATABASE_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-kasify}
+      DATABASE_USER: ${POSTGRES_USER:-kasify}
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-kasify}
+      # Generate with: openssl rand -base64 32
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:?Set ENCRYPTION_KEY in .env (openssl rand -base64 32)}
+      KINDE_DOMAIN: ${KINDE_DOMAIN:?Set KINDE_DOMAIN in .env}
+      KINDE_M2M_CLIENT_ID: ${KINDE_M2M_CLIENT_ID:-}
+      KINDE_M2M_CLIENT_SECRET: ${KINDE_M2M_CLIENT_SECRET:-}
+      CORS_ALLOWED_HOSTS: ${CORS_ALLOWED_HOSTS:-localhost:3000}
+      DASHBOARD_BASE_URL: ${DASHBOARD_BASE_URL:-http://localhost:3000}
+      EMAIL_ENABLED: ${EMAIL_ENABLED:-false}
+      EMAIL_FROM_ADDRESS: ${EMAIL_FROM_ADDRESS:-Kasify <noreply@example.com>}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+      METRICS_TOKEN: ${METRICS_TOKEN:-}
+    ports:
+      - "127.0.0.1:8080:8080"
+
+  dashboard:
+    build: ./dashboard
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      KINDE_CLIENT_ID: ${KINDE_CLIENT_ID:?Set KINDE_CLIENT_ID in .env}
+      KINDE_CLIENT_SECRET: ${KINDE_CLIENT_SECRET:?Set KINDE_CLIENT_SECRET in .env}
+      KINDE_ISSUER_URL: ${KINDE_DOMAIN:?Set KINDE_DOMAIN in .env}
+      KINDE_SITE_URL: ${DASHBOARD_BASE_URL:-http://localhost:3000}
+      KINDE_POST_LOGIN_REDIRECT_URL: ${DASHBOARD_BASE_URL:-http://localhost:3000}
+      KINDE_POST_LOGOUT_REDIRECT_URL: ${DASHBOARD_BASE_URL:-http://localhost:3000}
+      VITE_KASIFY_API_URL: http://api:8080
+      VITE_KASIFY_PUBLIC_URL: ${DASHBOARD_BASE_URL:-http://localhost:3000}
+      VITE_KASIFY_DOCS_URL: ${VITE_KASIFY_DOCS_URL:-}
+      VITE_KASIFY_LEGAL_URL: ${VITE_KASIFY_LEGAL_URL:-}
+    ports:
+      - "3000:3000"
+
+volumes:
+  db-data:

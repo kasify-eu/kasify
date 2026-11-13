@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SES Hospedajes rechazó el código de establecimiento de {{property_name}}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111;-webkit-font-smoothing:antialiased;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f6;padding:40px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;padding:40px;max-width:560px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+            <tr>
+              <td style="padding-bottom:32px;">
+                <span style="font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#8b8b92;">Kasify</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:24px;font-weight:700;line-height:1.25;padding-bottom:12px;color:#0f0f11;">
+                SES Hospedajes rechazó el código de establecimiento de {{property_name}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:20px;">
+                El registro de viajeros (SES Hospedajes) rechazó un envío de Kasify porque no
+                reconoce el código de establecimiento configurado para esta propiedad.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom:24px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;">
+                  <tr>
+                    <td style="padding:16px 20px;font-size:14px;line-height:1.7;color:#7f1d1d;">
+                      {{error_message}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.7;color:#3a3a40;padding-bottom:24px;">
+                <strong>Propiedad:</strong> {{property_name}}<br />
+                <strong>Código de establecimiento:</strong> {{establishment_code}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:24px;">
+                Los envíos al registro de viajeros de <strong>esta propiedad</strong> quedan
+                <strong>en pausa</strong> hasta que se corrija el código. El resto de tus propiedades
+                sigue enviando con normalidad. En cuanto corrijas y guardes el código en Kasify, los
+                envíos pendientes se reanudan automáticamente en menos de una hora.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 0 8px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                    <td align="center" style="padding:0 12px;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#9a9aa1;white-space:nowrap;">
+                      cómo solucionarlo
+                    </td>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.7;color:#3a3a40;padding:20px 0 28px 0;">
+                1. Abre tu portal SES y copia el código de establecimiento
+                (<em>codigoEstablecimiento</em>) exactamente como aparece &mdash; lo asigna SES y
+                los ceros iniciales importan.<br />
+                2. Asegúrate de que es el código de <strong>establecimiento</strong>, no el código de
+                arrendador (<em>codigoArrendador</em>) &mdash; confundirlos es la causa más habitual
+                de este error.<br />
+                3. Introduce el código corregido de {{property_name}} en Kasify.
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:28px;">
+                <a href="{{settings_url}}" style="display:inline-block;background:#0f0f11;color:#ffffff;font-size:15px;font-weight:600;line-height:1;text-decoration:none;padding:14px 28px;border-radius:10px;">
+                  Corregir el código de establecimiento
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;color:#8b8b92;line-height:1.55;padding-top:8px;border-top:1px solid #ececee;">
+                Si el botón no funciona, abre
+                <a href="{{settings_url}}" style="color:#0366d6;text-decoration:none;">{{settings_url}}</a>.
+              </td>
+            </tr>
+          </table>
+          <div style="font-size:11px;color:#9a9aa1;padding-top:16px;">
+            Recibes este correo porque eres titular de esta cuenta en Kasify.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

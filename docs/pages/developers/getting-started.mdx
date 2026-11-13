@@ -1,0 +1,67 @@
+---
+title: Getting Started
+---
+
+:::info
+Developer documentation is only available in English.
+:::
+
+Welcome to the Kasify developer documentation. This section covers everything you need to build integrations on top of the Kasify platform — authentication, the HTTP API, webhooks, and the smart-lock and calendar-sync plugins.
+
+## What's here
+
+- **API Reference** — the full OpenAPI-generated reference for every endpoint, with request/response schemas and a live playground.
+
+## Authentication
+
+All API requests are authenticated with a Bearer token issued by Kinde:
+
+```http
+Authorization: Bearer <your-token>
+```
+
+See the [API Reference](/api) for the full list of endpoints and their auth requirements.
+
+## Base URL
+
+Production API requests go to `https://api.kasify.eu`. Use `http://localhost:8080` when running the backend locally.
+
+## Versioning
+
+All business endpoints are served under a `/v1` prefix. A typical request looks like:
+
+```http
+GET /v1/properties HTTP/1.1
+Host: api.kasify.eu
+Authorization: Bearer <your-token>
+```
+
+The OpenAPI spec at `/openapi.json` sits outside the version prefix because it describes the API rather than serves business data.
+
+### Compatibility
+
+Within `v1` we only ship **additive, backwards-compatible** changes: new endpoints, new optional fields, new error codes. Anything that would break an existing integration ships at `/v2` and runs alongside `v1`.
+
+## Rate limiting
+
+The API is rate limited. Each bucket is independent — a request is rejected if any applicable bucket is exhausted. Limits are tracked over a rolling 1-minute window.
+
+| Bucket | Keyed by | Default limit | Applies to |
+|---|---|---|---|
+| Personal access token | Token id | 100 / min | Requests authenticated with a `kas_pat_…` token |
+| Geo lookups | Client IP | 50 / min | `/v1/geo/...` |
+| OpenAPI spec | Client IP | 10 / min | `/openapi.json`, `/openapi.yaml` |
+
+### 429 response
+
+When a bucket is exhausted, the API replies with HTTP `429 Too Many Requests`, a `Retry-After` header (seconds), and the standard error envelope:
+
+```json
+{
+  "code": "rate_limit.exceeded",
+  "message": "Too many requests. Retry after 42 seconds.",
+  "timestamp": "2026-04-28T07:40:59Z"
+}
+```
+
+Clients should honor `Retry-After` and back off accordingly. If you need a higher limit for a legitimate integration, contact support.

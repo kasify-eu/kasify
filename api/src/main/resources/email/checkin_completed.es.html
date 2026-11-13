@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Check-in completado</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111;-webkit-font-smoothing:antialiased;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f6;padding:40px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;padding:40px;max-width:560px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+            <tr>
+              <td style="padding-bottom:32px;">
+                <span style="font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#8b8b92;">Kasify</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:24px;font-weight:700;line-height:1.25;padding-bottom:12px;color:#0f0f11;">
+                Check-in completado para {{property_name}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:28px;">
+                Todos los huéspedes previstos de la reserva de <strong>{{guest_name}}</strong> se han
+                registrado, por lo que el check-in de <strong>{{property_name}}</strong> ya está completo.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 0 8px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                    <td align="center" style="padding:0 12px;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#9a9aa1;white-space:nowrap;">
+                      detalles de la reserva
+                    </td>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.7;color:#3a3a40;padding:24px 0 28px 0;">
+                <strong>Huésped:</strong> {{guest_name}}<br />
+                <strong>Estancia:</strong> {{checkin_from}} → {{checkin_to}}<br />
+                <strong>Huéspedes:</strong> {{guests_count}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;color:#8b8b92;line-height:1.55;padding-top:8px;border-top:1px solid #ececee;">
+                Consulta la reserva en Kasify en
+                <a href="{{dashboard_url}}" style="color:#0366d6;text-decoration:none;">{{dashboard_url}}</a>.
+              </td>
+            </tr>
+          </table>
+          <div style="font-size:11px;color:#9a9aa1;padding-top:16px;">
+            Recibes este correo porque gestionas {{property_name}} en Kasify.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

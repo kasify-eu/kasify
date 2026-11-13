@@ -1,0 +1,1 @@
+A booking could not be registered with SES Hospedajes — {{property_name}}

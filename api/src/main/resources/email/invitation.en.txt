@@ -1,0 +1,20 @@
+You've been invited to {{property_name}}
+
+{{inviter_name}} added you to {{property_name}} on Kasify as {{access_level_label}}.
+Accept the invitation to start collaborating on bookings, tasks, and smart locks.
+
+Accept invitation:
+{{accept_url}}
+
+Or use this code
+--------------------------
+Sign in to Kasify at {{dashboard_url}}, open Properties, choose "Join a property",
+and enter this code:
+
+    {{invitation_code}}
+
+If you weren't expecting this invitation you can safely ignore this message.
+
+— The Kasify team
+
+You're receiving this because you were invited to {{property_name}} on Kasify.

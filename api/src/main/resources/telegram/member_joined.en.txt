@@ -1,0 +1,5 @@
+✅ {{member_name}} joined {{property_name}}
+
+{{member_name}} ({{member_email}}) accepted the invitation and now has access to {{property_name}} as {{access_level_label}}.
+
+Manage your property team at {{dashboard_url}}.

@@ -1,0 +1,127 @@
+{
+  "code": 1,
+  "codeS": "SUCCESS",
+  "msg": "success",
+  "error": "",
+  "data": {
+    "unique_id": "de7a1786-c3db-4e9b-829c-5718f8688561",
+    "inviter_id": "4fdfbbb2-3404-41c0-83ce-75ad1ea0e361",
+    "inviter_name": "John Doe",
+    "first_name": "Kasify-fn",
+    "last_name": "Kasify-ln",
+    "avatar": "",
+    "remarks": "remarks",
+    "mobile_phone": "",
+    "area_code": "",
+    "phone_number": "",
+    "email": "",
+    "visitor_company": "",
+    "start_time": 1769531719,
+    "end_time": 1769618119,
+    "timezone": "Europe/Madrid",
+    "schedule_id": "106a4aa9-eb10-4235-b1f7-3dd4de7f618e",
+    "schedule": {
+      "name": "visitor-1769528119207",
+      "unique_id": "106a4aa9-eb10-4235-b1f7-3dd4de7f618e",
+      "type": "",
+      "is_default": false,
+      "is_private": true,
+      "holiday_group": {
+        "unique_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+        "name": "No Holidays",
+        "description": "",
+        "holidays": [],
+        "template_name": "",
+        "create_time": "2024-10-11T08:23:24+02:00",
+        "is_default": true,
+        "is_private": false
+      },
+      "user_timezone": {
+        "id": "f5167e8f-fa65-493a-8deb-53ad95565dc6",
+        "unique_id": "f5167e8f-fa65-493a-8deb-53ad95565dc6",
+        "name": "user 1769528119207",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "2": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "3": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "4": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "5": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "6": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": false,
+        "is_default": false
+      },
+      "holiday_timezone": {
+        "id": "bfefcda2-6b8c-4702-9ee2-cf8563e66f2c",
+        "unique_id": "bfefcda2-6b8c-4702-9ee2-cf8563e66f2c",
+        "name": "holiday 1769528119207",
+        "description": "",
+        "system": false,
+        "is_default": false,
+        "day_schedule": []
+      },
+      "schedule_type": "access"
+    },
+    "visit_reason": "Others",
+    "location_id": "",
+    "nfc_cards": [],
+    "pin_code": {
+      "user_asset_unique_id": "3009c00e-ffb8-4e64-9519-fc68cc320f62",
+      "user_id": "de7a1786-c3db-4e9b-829c-5718f8688561",
+      "user_type": "VISITOR",
+      "pin_code_token": "0000000000000000000000000000000000000000000000000000000000000000",
+      "pin_code_length": 6
+    },
+    "has_qr_code": false,
+    "license_plates": [],
+    "resource": [],
+    "status": 1,
+    "managed_by_other": false,
+    "create_time": 1769528120,
+    "is_send_email": false,
+    "is_send_sms": false,
+    "visit_time": null,
+    "is_print": false,
+    "id_card": "",
+    "photo_path": "",
+    "check_in_at": 0,
+    "require_check_in": false
+  }
+}

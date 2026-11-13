@@ -1,0 +1,375 @@
+/* ----- inline alert (matches .ciLink shape, red tone) ----- */
+.ciAlert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 46px;
+  background: var(--mantine-color-red-0);
+  border: 1px solid color-mix(in oklab, var(--mantine-color-red-3) 80%, transparent);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: color-mix(in oklab, var(--mantine-color-red-7) 90%, black);
+}
+
+/* ----- guest progress + cards ----- */
+.guestProgress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.guestProgress :global(.frac) {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mantine-color-gray-7);
+  font-variant-numeric: tabular-nums;
+}
+.guestProgress :global(.label) {
+  font-size: 11px;
+  color: var(--mantine-color-gray-6);
+  font-weight: 500;
+}
+.guestProgress :global(.rail) {
+  flex: 1;
+  height: 4px;
+  background: var(--mantine-color-gray-2);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.guestProgress :global(.fill) {
+  height: 100%;
+  background: var(--mantine-color-green-6);
+  border-radius: 999px;
+  transition: width 300ms ease;
+}
+
+.guestCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid var(--mantine-color-gray-2);
+  margin-bottom: 6px;
+}
+.guestCardEmpty {
+  background: var(--mantine-color-gray-1);
+  border-style: dashed;
+  border-color: var(--mantine-color-gray-3);
+  color: var(--mantine-color-gray-6);
+}
+.guestAvatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--mantine-color-gray-2);
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--mantine-color-gray-7);
+  flex-shrink: 0;
+}
+.guestAvatarDone {
+  background: var(--mantine-color-green-0);
+  color: color-mix(in oklab, var(--mantine-color-green-6) 70%, black);
+}
+.guestName {
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.guestName :global(.age) {
+  color: var(--mantine-color-gray-6);
+  font-weight: 400;
+  margin-left: 4px;
+}
+.guestStatus {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--mantine-color-gray-6);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.guestStatusDone {
+  color: var(--mantine-color-green-6);
+}
+.guestStatus svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ----- access code cards ----- */
+.codeCard {
+  display: grid;
+  grid-template-columns: 34px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--mantine-color-gray-3);
+  border-radius: 12px;
+  padding: 12px 10px 12px 14px;
+  margin-bottom: 8px;
+}
+.codeIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: var(--mantine-color-gray-1);
+  display: grid;
+  place-items: center;
+  color: var(--mantine-color-gray-7);
+}
+.codeIcon svg {
+  width: 16px;
+  height: 16px;
+}
+.codeMain {
+  min-width: 0;
+}
+.codeDigits {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  font-size: 17px;
+  line-height: 1.1;
+  color: var(--mantine-color-dark-9);
+}
+.codeMeta {
+  font-size: 11px;
+  color: var(--mantine-color-gray-6);
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.codeMeta :global(.dot) {
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--mantine-color-gray-5);
+  flex-shrink: 0;
+}
+.codeActions {
+  display: flex;
+  gap: 2px;
+}
+
+.emptyAccess {
+  padding: 18px 20px;
+  border: 1px dashed var(--mantine-color-gray-3);
+  background: var(--mantine-color-gray-1);
+  border-radius: 12px;
+  text-align: center;
+}
+.emptyAccess p {
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--mantine-color-gray-6);
+}
+
+/* ----- cleaner picker ----- */
+.cleanerWrap :global(.mantine-Select-input) {
+  background: #fff;
+  border: 1px solid var(--mantine-color-gray-3);
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--mantine-color-dark-9);
+  height: 42px;
+}
+.cleanerWrap :global(.mantine-Select-input:focus) {
+  border-color: var(--mantine-color-dark-9);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--mantine-color-dark-9) 8%, transparent);
+}
+
+/* ----- modal ----- */
+.modalCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 28px;
+  position: relative;
+}
+.modalCard :global(.x) {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: var(--mantine-color-gray-6);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.modalCard :global(.x):hover {
+  background: var(--mantine-color-gray-1);
+  color: var(--mantine-color-dark-9);
+}
+.modalCard :global(.x) svg {
+  width: 16px;
+  height: 16px;
+}
+.modalIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--mantine-color-red-0);
+  color: var(--mantine-color-red-6);
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+.modalIcon svg {
+  width: 22px;
+  height: 22px;
+}
+.modalCard h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--mantine-color-dark-9);
+}
+.modalCard p {
+  margin: 0 0 18px;
+  font-size: 13px;
+  color: var(--mantine-color-gray-6);
+  line-height: 1.55;
+}
+.modalActions {
+  display: flex;
+  gap: 10px;
+}
+.modalActions button {
+  height: 44px;
+  flex: 1;
+  border-radius: 12px;
+}
+
+/* ----- inline stay-times editor ----- */
+.timeInlinePicker {
+  margin-top: 4px;
+}
+.timeInlinePicker :global(.mantine-TimePicker-fieldsRoot) {
+  width: auto;
+  min-width: 0;
+  border-radius: 8px;
+}
+.timeInlinePresets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 4px;
+}
+.timeInlinePresets button {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--mantine-color-gray-7);
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: var(--mantine-color-gray-2);
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1.3;
+}
+.timeInlinePresets button:hover {
+  background: var(--mantine-color-gray-3);
+  color: var(--mantine-color-dark-9);
+}
+
+/* ----- SES Hospedajes registration status banner ----- */
+.sesBanner {
+  display: grid;
+  grid-template-columns: 38px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--mantine-color-gray-3);
+  background: var(--mantine-color-gray-0);
+  margin-bottom: 18px;
+}
+.sesIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--mantine-color-gray-6);
+  border: 1px solid var(--mantine-color-gray-3);
+  flex-shrink: 0;
+}
+.sesIcon svg {
+  width: 19px;
+  height: 19px;
+  stroke-width: 1.9;
+}
+.sesMain {
+  min-width: 0;
+}
+.sesTitle {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--mantine-color-dark-9);
+  letter-spacing: -0.01em;
+}
+.sesMeta {
+  font-size: 11.5px;
+  color: var(--mantine-color-gray-6);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.sesRef {
+  font-family: var(--mantine-font-family-monospace, ui-monospace, monospace);
+  font-size: 11px;
+}
+
+/* registered */
+.sesOk {
+  background: var(--mantine-color-green-0);
+  border-color: color-mix(in oklab, var(--mantine-color-green-6) 24%, white);
+}
+.sesOk .sesIcon {
+  background: color-mix(in oklab, var(--mantine-color-green-6) 14%, white);
+  border-color: color-mix(in oklab, var(--mantine-color-green-6) 28%, white);
+  color: color-mix(in oklab, var(--mantine-color-green-6) 72%, black);
+}
+
+/* failed */
+.sesFail {
+  background: var(--mantine-color-red-0);
+  border-color: color-mix(in oklab, var(--mantine-color-red-6) 28%, white);
+}
+.sesFail .sesIcon {
+  background: color-mix(in oklab, var(--mantine-color-red-6) 12%, white);
+  border-color: color-mix(in oklab, var(--mantine-color-red-6) 26%, white);
+  color: var(--mantine-color-red-6);
+}
+
+/* pending / processing */
+.sesPending {
+  background: var(--mantine-color-yellow-0);
+  border-color: color-mix(in oklab, var(--mantine-color-yellow-6) 26%, white);
+}
+.sesPending .sesIcon {
+  background: color-mix(in oklab, var(--mantine-color-yellow-6) 14%, white);
+  border-color: color-mix(in oklab, var(--mantine-color-yellow-6) 28%, white);
+  color: color-mix(in oklab, var(--mantine-color-yellow-6) 55%, black);
+}

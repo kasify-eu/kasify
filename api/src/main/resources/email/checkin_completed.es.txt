@@ -1,0 +1,16 @@
+Check-in completado para {{property_name}}
+
+Todos los huéspedes previstos de la reserva de {{guest_name}} se han registrado,
+por lo que el check-in de {{property_name}} ya está completo.
+
+Detalles de la reserva
+--------------------------
+Huésped:   {{guest_name}}
+Estancia:  {{checkin_from}} -> {{checkin_to}}
+Huéspedes: {{guests_count}}
+
+Consulta la reserva en Kasify en {{dashboard_url}}.
+
+— El equipo de Kasify
+
+Recibes este correo porque gestionas {{property_name}} en Kasify.

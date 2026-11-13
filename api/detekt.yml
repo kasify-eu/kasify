@@ -1,0 +1,438 @@
+# https://github.com/arturbosch/detekt
+# https://medium.com/@acerezoluna/static-code-analysis-tools-for-kotlin-in-android-fa072125fd50
+
+build:
+  maxIssues: 0
+  severity: error
+  weights:
+  # complexity: 2
+  # LongParameterList: 1
+  # style: 1
+  # comments: 1
+
+processors:
+  active: false
+  severity: error
+  exclude:
+  # - 'FunctionCountProcessor'
+  # - 'PropertyCountProcessor'
+  # - 'ClassCountProcessor'
+  # - 'PackageCountProcessor'
+  # - 'KtFileCountProcessor'
+
+console-reports:
+  active: true
+  severity: error
+  exclude:
+  #  - 'ProjectStatisticsReport'
+  #  - 'ComplexityReport'
+  #  - 'NotificationReport'
+  #  - 'FindingsReport'
+  #  - 'BuildFailureReport'
+
+output-reports:
+  active: true
+  severity: error
+  exclude:
+  #  - 'HtmlOutputReport'
+  #  - 'PlainOutputReport'
+  #  - 'XmlOutputReport'
+
+comments:
+  active: false
+  severity: error
+  CommentOverPrivateFunction:
+    active: false
+  CommentOverPrivateProperty:
+    active: false
+  EndOfSentenceFormat:
+    active: false
+    endOfSentenceFormat: ([.?!][ \t\n\r\f<])|([.?!]$)
+  UndocumentedPublicClass:
+    active: false
+    searchInNestedClass: false
+    searchInInnerClass: false
+    searchInInnerObject: false
+    searchInInnerInterface: false
+  UndocumentedPublicFunction:
+    active: false
+
+complexity:
+  active: false
+  severity: error
+  ComplexCondition:
+    active: false
+    threshold: 4
+  ComplexInterface:
+    active: false
+    includeStaticDeclarations: false
+  LabeledExpression:
+    active: false
+  LargeClass:
+    active: false
+    threshold: 150
+  LongMethod:
+    active: false
+    threshold: 20
+  LongParameterList:
+    active: false
+    constructorThreshold: 6
+    ignoreDefaultParameters: false
+  MethodOverloading:
+    active: false
+    threshold: 6
+  NestedBlockDepth:
+    active: false
+    threshold: 4
+  StringLiteralDuplication:
+    active: false
+    threshold: 3
+    ignoreAnnotation: false
+    excludeStringsWithLessThan5Characters: false
+    ignoreStringsRegex: '$^'
+  TooManyFunctions:
+    active: false
+    thresholdInFiles: 15
+    thresholdInClasses: 15
+    thresholdInInterfaces: 15
+    thresholdInObjects: 15
+    thresholdInEnums: 15
+    ignoreDeprecated: false
+    ignorePrivate: false
+
+empty-blocks:
+  active: true
+  severity: error
+  EmptyCatchBlock:
+    active: true
+    allowedExceptionNameRegex: "^(_|(ignore|expected).*)"
+  EmptyClassBlock:
+    active: true
+  EmptyDefaultConstructor:
+    active: true
+  EmptyDoWhileBlock:
+    active: true
+  EmptyElseBlock:
+    active: true
+  EmptyFinallyBlock:
+    active: true
+  EmptyForBlock:
+    active: true
+  EmptyFunctionBlock:
+    active: false
+    ignoreOverridden: false
+  EmptyIfBlock:
+    active: true
+  EmptyInitBlock:
+    active: true
+  EmptyKtFile:
+    active: true
+  EmptySecondaryConstructor:
+    active: true
+  EmptyWhenBlock:
+    active: true
+  EmptyWhileBlock:
+    active: true
+
+exceptions:
+  active: false
+  severity: error
+  ExceptionRaisedInUnexpectedLocation:
+    active: false
+    methodNames: ['toString,hashCode,equals,finalize']
+  InstanceOfCheckForException:
+    active: false
+  NotImplementedDeclaration:
+    active: false
+  PrintStackTrace:
+    active: false
+  RethrowCaughtException:
+    active: false
+  ReturnFromFinally:
+    active: false
+  SwallowedException:
+    active: false
+  ThrowingExceptionFromFinally:
+    active: false
+  ThrowingExceptionInMain:
+    active: false
+  ThrowingExceptionsWithoutMessageOrCause:
+    active: false
+    exceptions: ['IllegalArgumentException,IllegalStateException,IOException']
+  ThrowingNewInstanceOfSameException:
+    active: false
+  TooGenericExceptionCaught:
+    active: false
+    exceptionNames:
+      - ArrayIndexOutOfBoundsException
+      - Error
+      - Exception
+      - IllegalMonitorStateException
+      - NullPointerException
+      - IndexOutOfBoundsException
+      - RuntimeException
+      - Throwable
+  TooGenericExceptionThrown:
+    active: false
+    exceptionNames:
+      - Error
+      - Exception
+      - Throwable
+      - RuntimeException
+
+formatting:
+  active: true
+  severity: error
+  android: false
+  ChainWrapping:
+    active: false
+  CommentSpacing:
+    active: false
+  Filename:
+    active: false
+  FinalNewline:
+    active: false
+  ImportOrdering:
+    active: false
+  Indentation:
+    active: false
+    indentSize: 4
+  MaximumLineLength:
+    active: false
+    maxLineLength: 0
+  ModifierOrdering:
+    active: false
+  NoBlankLineBeforeRbrace:
+    active: false
+  NoConsecutiveBlankLines:
+    active: true
+  NoEmptyClassBody:
+    active: false
+  NoItParamInMultilineLambda:
+    active: false
+  NoLineBreakAfterElse:
+    active: false
+  NoLineBreakBeforeAssignment:
+    active: false
+  NoMultipleSpaces:
+    active: true
+  NoSemicolons:
+    active: true
+  NoTrailingSpaces:
+    active: false
+  NoUnitReturn:
+    active: false
+  NoWildcardImports:
+    active: true
+  ParameterListWrapping:
+    active: false
+    indentSize: 4
+  SpacingAroundColon:
+    active: false
+  SpacingAroundComma:
+    active: false
+  SpacingAroundCurly:
+    active: false
+  SpacingAroundKeyword:
+    active: false
+  SpacingAroundOperators:
+    active: false
+  SpacingAroundRangeOperator:
+    active: false
+  StringTemplate:
+    active: false
+
+naming:
+  active: false
+  severity: error
+  ClassNaming:
+    active: false
+    classPattern: '[A-Z$][a-zA-Z0-9$]*'
+  EnumNaming:
+    active: false
+    enumEntryPattern: '^[A-Z][_a-zA-Z0-9]*'
+  ForbiddenClassName:
+    active: false
+    forbiddenName: ['']
+  FunctionMaxLength:
+    active: false
+    maximumFunctionNameLength: 30
+  FunctionMinLength:
+    active: false
+    minimumFunctionNameLength: 3
+  FunctionNaming:
+    active: false
+    functionPattern: '^([a-z$][a-zA-Z$0-9]*)|(`.*`)$'
+    excludeClassPattern: '$^'
+  MatchingDeclarationName:
+    active: false
+  MemberNameEqualsClassName:
+    active: false
+    ignoreOverridden: true
+  ObjectPropertyNaming:
+    active: false
+    constantPattern: '[A-Za-z][_A-Za-z0-9]*'
+    propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
+    privatePropertyPattern: '(_)?[A-Za-z][A-Za-z0-9]*'
+  PackageNaming:
+    active: false
+    packagePattern: '^[a-z]+(\.[a-z][a-z0-9]*)*$'
+  TopLevelPropertyNaming:
+    active: false
+    constantPattern: '[A-Z][_A-Z0-9]*'
+    propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
+    privatePropertyPattern: '(_)?[A-Za-z][A-Za-z0-9]*'
+  VariableMaxLength:
+    active: false
+    maximumVariableNameLength: 64
+  VariableMinLength:
+    active: false
+    minimumVariableNameLength: 1
+  VariableNaming:
+    active: false
+    variablePattern: '[a-z][A-Za-z0-9]*'
+    privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
+
+performance:
+  active: false
+  severity: error
+  ForEachOnRange:
+    active: false
+  SpreadOperator:
+    active: false
+  UnnecessaryTemporaryInstantiation:
+    active: false
+
+potential-bugs:
+  active: true
+  severity: error
+  EqualsAlwaysReturnsTrueOrFalse:
+    active: false
+  EqualsWithHashCodeExist:
+    active: false
+  ExplicitGarbageCollectionCall:
+    active: false
+  InvalidRange:
+    active: false
+  IteratorHasNextCallsNextMethod:
+    active: false
+  IteratorNotThrowingNoSuchElementException:
+    active: false
+  LateinitUsage:
+    active: false
+    ignoreAnnotated: ""
+    ignoreOnClassesPattern: ""
+  UnconditionalJumpStatementInLoop:
+    active: false
+  UnreachableCode:
+    active: true
+  UnsafeCallOnNullableType:
+    active: false
+  UnsafeCast:
+    active: false
+  UselessPostfixExpression:
+    active: false
+  WrongEqualsTypeParameter:
+    active: false
+
+style:
+  active: true
+  severity: error
+  CollapsibleIfStatements:
+    active: false
+  DataClassContainsFunctions:
+    active: false
+    conversionFunctionPrefix: ['to']
+  EqualsNullCall:
+    active: false
+  ExpressionBodySyntax:
+    active: false
+    includeLineWrapping: false
+  ForbiddenComment:
+    active: false
+    comments: ['TODO:,FIXME:,STOPSHIP:']
+  ForbiddenImport:
+    active: false
+    imports: ['']
+  FunctionOnlyReturningConstant:
+    active: false
+    ignoreOverridableFunction: true
+    excludedFunctions: ['describeContents']
+  LoopWithTooManyJumpStatements:
+    active: false
+    maxJumpCount: 1
+  MagicNumber:
+    active: false
+    ignoreNumbers: ['-1,0,1,2']
+    ignoreHashCodeFunction: false
+    ignorePropertyDeclaration: false
+    ignoreConstantDeclaration: true
+    ignoreCompanionObjectPropertyDeclaration: true
+    ignoreAnnotation: false
+    ignoreNamedArgument: true
+    ignoreEnums: false
+  MaxLineLength:
+    active: false
+    maxLineLength: 120
+    excludePackageStatements: false
+    excludeImportStatements: false
+    excludeCommentStatements: false
+  MayBeConst:
+    active: false
+  ModifierOrder:
+    active: false
+  NestedClassesVisibility:
+    active: false
+  NewLineAtEndOfFile:
+    active: false
+  NoTabs:
+    active: false
+  OptionalAbstractKeyword:
+    active: false
+  OptionalUnit:
+    active: false
+  PreferToOverPairSyntax:
+    active: false
+  ProtectedMemberInFinalClass:
+    active: false
+  RedundantVisibilityModifierRule:
+    active: true
+  ReturnCount:
+    active: false
+    max: 2
+    excludedFunctions: ["equals"]
+  SafeCast:
+    active: false
+  SerialVersionUIDInSerializableClass:
+    active: false
+  SpacingBetweenPackageAndImports:
+    active: false
+  ThrowsCount:
+    active: false
+    max: 2
+  TrailingWhitespace:
+    active: false
+  UnnecessaryAbstractClass:
+    active: false
+  UnnecessaryInheritance:
+    active: false
+  UnnecessaryParentheses:
+    active: false
+  UntilInsteadOfRangeTo:
+    active: false
+  UnusedImports:
+    active: true
+  UnusedPrivateMember:
+    active: true
+    allowedNames: "(_|ignored|expected|serialVersionUID|TAG)"
+  UseDataClass:
+    active: false
+    ignoreAnnotated: [""]
+  UtilityClassWithPublicConstructor:
+    active: false
+  VarCouldBeVal:
+    active: true
+  WildcardImport:
+    active: false
+    excludeImports: ['java.util.*,kotlinx.android.synthetic.*']

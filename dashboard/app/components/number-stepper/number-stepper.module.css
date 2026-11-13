@@ -1,0 +1,71 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: oklch(0.55 0.008 270);
+}
+
+.stepper {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid oklch(0.92 0.004 270);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.stepper button {
+  width: 34px;
+  color: oklch(0.55 0.008 270);
+  font-size: 15px;
+  font-weight: 500;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.stepper button:hover:not(:disabled) {
+  background: oklch(0.975 0.004 270);
+  color: oklch(0.18 0.01 270);
+}
+
+.stepper button:disabled {
+  color: oklch(0.92 0.004 270);
+  cursor: not-allowed;
+}
+
+.stepper button svg {
+  width: 14px;
+  height: 14px;
+}
+
+.stepper input {
+  flex: 1;
+  border: 0;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  background: transparent;
+  outline: none;
+  padding: 8px 0;
+  font-variant-numeric: tabular-nums;
+  min-width: 0;
+  -moz-appearance: textfield;
+  color: inherit;
+  font-family: inherit;
+}
+
+.stepper input::-webkit-outer-spin-button,
+.stepper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

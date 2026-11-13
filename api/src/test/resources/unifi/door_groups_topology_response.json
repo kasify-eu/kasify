@@ -1,0 +1,26 @@
+{
+  "code": "SUCCESS",
+  "msg": "success",
+  "data": [
+    {
+      "id": "79bb44de-db3e-4952-a976-53af693d059d",
+      "name": "All Doors",
+      "type": "building",
+      "resource_topologies": [
+        {
+          "id": "d57e449f-f9b9-4c77-831b-ded1757cf9b7",
+          "name": "1F",
+          "type": "floor",
+          "resources": [
+            {
+              "id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+              "name": "Puerta Exterior",
+              "type": "door",
+              "is_bind_hub": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+.DS_Store
+/node_modules/
+
+# React Router
+/.react-router/
+/build/
+
+# Claude MCPs
+/.playwright-mcp/
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/

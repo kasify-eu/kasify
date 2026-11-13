@@ -1,0 +1,70 @@
+---
+title: Configurar SES Hospedajes
+navigation_label: Configuración
+---
+
+Esta página describe cómo configurar la integración con SES Hospedajes en Kasify, qué datos se envían y cómo gestionar errores de envío.
+
+## Requisitos previos
+
+Para usar la integración necesitas:
+
+- Estar dado de alta como **arrendador** en SES Hospedajes y disponer de tu **código de arrendador**.
+- Las credenciales de tu cuenta SES (**usuario** y **contraseña**).
+
+Si todavía no estás registrado en SES Hospedajes, sigue primero [Alta en SES Hospedajes](/es/setup/ses-hospedajes/registration): te guía en el alta en el portal oficial y en cómo obtener estas credenciales.
+
+## Conectar SES Hospedajes en Kasify
+
+1. En Kasify, abre **Integraciones** y pulsa **Añadir integración**.
+2. Selecciona **SES Hospedajes**.
+3. Rellena los **Datos de conexión**:
+
+| Campo | Notas |
+|---|---|
+| Código de arrendador | Tu identificador como arrendador (máx. 10 caracteres). |
+| Usuario SES | Usuario de tu cuenta SES. |
+| Contraseña SES | Contraseña de tu cuenta SES. |
+
+4. Pulsa **Conectar**.
+
+Si las credenciales son correctas, Kasify guarda la integración y te lleva a su página de detalle. La contraseña se almacena cifrada y no vuelve a mostrarse.
+
+## Qué envía Kasify y cuándo
+
+Para cada reserva, Kasify envía los **datos de la reserva junto con los datos de los huéspedes que exige SES**.
+
+El envío **no** sale en el momento en que el huésped termina el check-in digital. El proceso de envío de Kasify se ejecuta periódicamente y recoge una reserva cuando se cumplen todas estas condiciones:
+
+- Los huéspedes han completado el **check-in digital**.
+- La **hora de entrada de la reserva ya ha pasado** — Kasify espera unas horas tras la llegada prevista antes de presentar, de modo que las correcciones de última hora de los huéspedes entren en el parte.
+- La reserva está confirmada (no cancelada) y su propiedad pertenece a una cuenta con la **integración SES activa**.
+
+En la práctica, esto significa que el parte se presenta unas horas después de la hora de llegada. Kasify sigue intentándolo mientras la reserva está activa, hasta un día después de la salida.
+
+Si SES rechaza un envío (por ejemplo, faltan datos obligatorios o un documento es incorrecto), el error queda registrado en la reserva para que corrijas los datos — Kasify reenvía automáticamente en cuanto cambian.
+
+## Editar las credenciales
+
+1. Abre **Integraciones → SES Hospedajes**.
+2. Pulsa **Editar**.
+3. Modifica los campos que necesites. Si no quieres cambiar la contraseña, déjala en blanco.
+4. Pulsa **Guardar cambios**.
+
+## Eliminar la integración
+
+Pulsando **Eliminar** en la página de detalle se elimina la conexión con SES. Esto:
+
+- Detiene los **envíos automáticos** de partes de viajeros.
+- **Desconecta tu cuenta SES** de Kasify (la cuenta SES en sí no se modifica).
+- No afecta a los partes ya enviados desde Kasify hasta ese momento.
+
+Si vuelves a conectar SES más tarde, los nuevos envíos se reanudan; los partes pendientes anteriores no se reintentan automáticamente.
+
+## Solución de problemas
+
+Para la lista completa de códigos de error de SES y cómo solucionar cada uno, consulta [Errores de SES Hospedajes y cómo solucionarlos](/es/setup/ses-hospedajes/errors).
+
+- **"Error de conexión"** al conectar: revisa que el usuario y la contraseña sean correctos.
+- **Partes rechazados**: comprueba en el detalle de la reserva qué campo del huésped ha causado el rechazo (documento, nacionalidad, fecha de nacimiento) y corrígelo desde la ficha del huésped.
+- **Cambios en SES**: si cambias tu contraseña directamente en el portal de SES, recuerda actualizarla también en Kasify desde **Editar**.

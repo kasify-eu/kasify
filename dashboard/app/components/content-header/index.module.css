@@ -1,0 +1,22 @@
+.rootContentHeader{
+    height: 72px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    /*border-bottom: 1px solid #F3F4F6;*/
+}
+
+.title{
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+/* On small screens, only show the last (active) breadcrumb item */
+@media (max-width: 64em) {
+    .breadcrumbs :global(.mantine-Breadcrumbs-breadcrumb):not(:last-child) {
+        display: none;
+    }
+    .breadcrumbs :global(.mantine-Breadcrumbs-separator) {
+        display: none;
+    }
+}

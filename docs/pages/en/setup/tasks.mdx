@@ -1,0 +1,50 @@
+---
+title: Tasks and cleaning
+---
+
+Whenever Kasify imports a booking, a **cleaning task** is automatically created and linked to it. This page explains how those tasks are assigned and how to change the assignee when needed.
+
+## How cleaning tasks are generated
+
+- When a booking is **imported** from a channel (Airbnb, Booking, VRBO, etc.), Kasify generates the matching cleaning task.
+- The task is tied to the booking's checkout.
+- Only **cleaning** tasks are generated automatically. Other task types (maintenance, etc.) are created manually when needed.
+
+## Property default cleaner
+
+Each property can have a **default cleaner**: the team member that new cleaning tasks for that property are automatically assigned to.
+
+To configure it:
+
+1. Open **Properties**, select the property, and click **Settings**.
+2. Find the **Cleaning Settings** section.
+3. In **Default Cleaner**, pick a member of the property's team.
+4. Save your changes.
+
+From that point on, every new booking imported for this property generates a cleaning task pre-assigned to that person.
+
+:::tip
+The default cleaner must be a member of the property's team. If the person isn't on the team yet, invite them first — see [Invite and manage the team](/en/team/invitations).
+:::
+
+Every property **always** has a default cleaner: if you haven't added anyone to the team yet (Staff or Contractor), tasks are assigned to the property's **owner**. As soon as you add other team members, you can reassign it from the **Cleaning Settings** section.
+
+## Change the cleaner for a specific booking
+
+The default cleaner is applied when the task is created, but you can always **reassign it** for a specific booking without touching the property's global setting:
+
+1. Open the booking from the bookings list or the calendar.
+2. In the booking detail, find the associated **cleaning task**.
+3. Change the assignee by picking another team member.
+
+The change only affects that booking. The property's default cleaner stays in place for future bookings.
+
+## Who sees cleaning tasks
+
+Task visibility depends on each person's role on the property:
+
+- **Owner** and **Manager**: see every task for the property and can reassign them.
+- **Staff**: only see the tasks assigned to them, **not those of other team members**. They can also see every booking on the property (without guest personal data), which lets them check the calendar and self-organize.
+- **Contractor**: only sees tasks explicitly assigned to them, with minimum booking context (dates, guest count, instructions).
+
+For full details, see [Roles and permissions](/en/roles).

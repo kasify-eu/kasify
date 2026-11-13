@@ -1,0 +1,1 @@
+{{inviter_name}} te ha invitado a {{property_name}} en Kasify

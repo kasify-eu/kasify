@@ -1,0 +1,31 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <ns3:consultaLoteResponse xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion" xmlns="">
+      <respuesta>
+        <codigo>0</codigo>
+        <descripcion>Ok</descripcion>
+      </respuesta>
+      <resultado>
+        <lote>LOTE-PV-EST</lote>
+        <tipoComunicacion>PV</tipoComunicacion>
+        <tipoOperacion>A</tipoOperacion>
+        <fechaPeticion>2026-06-19 15:51:59</fechaPeticion>
+        <fechaProcesamiento>2026-06-19 15:54:56</fechaProcesamiento>
+        <codigoEstado>6</codigoEstado>
+        <descEstado>Lote tramitado pero hay errores en algunas comunicaciones</descEstado>
+        <identificadorUsuario>12345678ZWS</identificadorUsuario>
+        <nombreUsuario>JOHN DOE</nombreUsuario>
+        <codigoArrendador>0000145750</codigoArrendador>
+        <aplicacion>Kasify</aplicacion>
+        <resultadoComunicaciones>
+          <resultadoComunicacion>
+            <orden>1</orden>
+            <tipoError>Error validación de datos</tipoError>
+            <error>Error de validación en la comunicación [1]: [No existe un establecimiento para ese código. Solo puede enviar comunicaciones a sus establecimientos. Compruebe que está correctamente escrito. Código de establecimiento: [E12345]]</error>
+          </resultadoComunicacion>
+        </resultadoComunicaciones>
+      </resultado>
+    </ns3:consultaLoteResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

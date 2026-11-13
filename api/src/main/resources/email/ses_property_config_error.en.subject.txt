@@ -1,0 +1,1 @@
+Action required: SES rejected the establishment code of {{property_name}}

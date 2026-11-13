@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+    --breakpoint-3xl: 120rem;
+}
+
+body, html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.02em;
+}
+
+.mantine-Table-tr{
+  border: none;
+}
+.mantine-Table-td{
+  padding: 1rem 0.75rem;
+}
+
+@media (max-width: 48em) {
+  html {
+    font-size: 18px;
+  }
+}

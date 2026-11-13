@@ -1,0 +1,11 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:com="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <com:catalogoRequest>
+            <peticion>
+                <catalogo>SEXO</catalogo>
+            </peticion>
+        </com:catalogoRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

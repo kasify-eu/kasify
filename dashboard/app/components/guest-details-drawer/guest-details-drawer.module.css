@@ -1,0 +1,403 @@
+/* Guest details drawer — shares the booking drawer aesthetic but adds an
+ * identity block at the top with avatar, sub-line and pills. Form sections
+ * mirror the design's Personal · Document · Residence · Contact structure.
+ */
+
+.panel {
+  --radius: 14px;
+  --radius-sm: 10px;
+  color: var(--mantine-color-dark-9);
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.panel button {
+  font-family: inherit;
+  cursor: pointer;
+}
+.panel input,
+.panel select,
+.panel textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* ----- header ----- */
+.head {
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+  background: #F8FAFC;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.headActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.iconBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  color: var(--mantine-color-gray-7);
+  background: transparent;
+  border: 1px solid transparent;
+  transition: background 120ms, color 120ms;
+  padding: 0;
+}
+.iconBtn:hover {
+  background: var(--mantine-color-gray-1);
+  color: var(--mantine-color-dark-9);
+}
+.iconBtn svg {
+  width: 18px;
+  height: 18px;
+}
+.iconBtnClose {
+  background: var(--mantine-color-dark-9);
+  color: #fff;
+}
+.iconBtnClose:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* identity block */
+.identity {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.identityText {
+  flex: 1;
+  min-width: 0;
+}
+.identityText h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--mantine-color-dark-9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sub {
+  font-size: 12.5px;
+  color: var(--mantine-color-gray-6);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sub .sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--mantine-color-gray-5);
+  display: inline-block;
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+/* avatar */
+.av {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+  background: oklch(0.86 0.05 75);
+  color: oklch(0.35 0.1 75);
+  border: 1px solid var(--mantine-color-gray-2);
+}
+.av[data-tint="b"] { background: oklch(0.86 0.05 220); color: oklch(0.35 0.1 230); }
+.av[data-tint="c"] { background: oklch(0.86 0.05 340); color: oklch(0.35 0.1 340); }
+.av[data-tint="d"] { background: oklch(0.86 0.05 155); color: oklch(0.35 0.1 155); }
+.av[data-tint="e"] { background: oklch(0.86 0.05 35); color: oklch(0.35 0.1 35); }
+
+/* ----- body ----- */
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 22px 24px;
+  min-height: 0;
+  background: #fff;
+}
+.body::-webkit-scrollbar {
+  width: 10px;
+}
+.body::-webkit-scrollbar-thumb {
+  background: var(--mantine-color-gray-3);
+  border-radius: 999px;
+  border: 3px solid #fff;
+}
+
+/* ----- form section ----- */
+.section {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--mantine-color-gray-2);
+}
+.section:last-child {
+  border-bottom: 0;
+}
+.sectionHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.sectionLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  color: var(--mantine-color-gray-7);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sectionLabel .num {
+  width: 22px;
+  height: 20px;
+  border-radius: 6px;
+  background: var(--mantine-color-gray-2);
+  color: var(--mantine-color-gray-6);
+  font-size: 10px;
+  display: grid;
+  place-items: center;
+  font-weight: 600;
+}
+
+.kvGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 22px;
+}
+.span2 {
+  grid-column: span 2;
+}
+
+/* ----- field ----- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+.fieldLabel {
+  font-size: 11px;
+  color: var(--mantine-color-gray-6);
+  font-weight: 500;
+}
+.fieldValue {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--mantine-color-gray-3);
+  border-radius: 6px;
+  padding: 7px 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mantine-color-dark-9);
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+.fieldValue[data-empty="true"] {
+  color: var(--mantine-color-gray-5);
+  font-weight: 400;
+}
+.fieldMono {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.04em;
+}
+.hint {
+  font-size: 11px;
+  color: var(--mantine-color-gray-5);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.phoneField {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: stretch;
+  border: 1px solid var(--mantine-color-gray-3);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+.phoneField :global(.prefix) {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
+  border-right: 1px solid var(--mantine-color-gray-3);
+  background: var(--mantine-color-gray-1);
+  color: var(--mantine-color-gray-7);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "JetBrains Mono", monospace;
+}
+.phoneField :global(.value) {
+  padding: 9px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--mantine-color-dark-9);
+}
+.phoneField :global(.value)[data-empty="true"] {
+  color: var(--mantine-color-gray-5);
+  font-weight: 400;
+}
+
+/* ----- pills ----- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid var(--mantine-color-gray-3);
+  background: var(--mantine-color-gray-1);
+  color: var(--mantine-color-gray-7);
+}
+.pillGreen {
+  background: var(--mantine-color-green-0);
+  color: color-mix(in oklab, var(--mantine-color-green-6) 70%, black);
+  border-color: color-mix(in oklab, var(--mantine-color-green-6) 25%, white);
+}
+.pillBlue {
+  background: var(--mantine-color-blue-0);
+  color: color-mix(in oklab, var(--mantine-color-blue-7) 70%, black);
+  border-color: color-mix(in oklab, var(--mantine-color-blue-5) 26%, white);
+}
+.pillAmber {
+  background: var(--mantine-color-yellow-0);
+  color: color-mix(in oklab, var(--mantine-color-yellow-7) 60%, black);
+  border-color: color-mix(in oklab, var(--mantine-color-yellow-5) 28%, white);
+}
+.pill svg {
+  width: 11px;
+  height: 11px;
+}
+
+/* ----- edit/create form layout ----- */
+/* The form fills the remaining drawer height so the body scrolls
+ * independently and the footer with Save/Cancel stays pinned. */
+.formContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.formBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 22px 24px;
+  min-height: 0;
+  background: #fff;
+}
+.formBody::-webkit-scrollbar {
+  width: 10px;
+}
+.formBody::-webkit-scrollbar-thumb {
+  background: var(--mantine-color-gray-3);
+  border-radius: 999px;
+  border: 3px solid #fff;
+}
+.formFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 22px;
+  border-top: 1px solid var(--mantine-color-gray-2);
+  background: #fff;
+}
+
+@media (max-width: 520px) {
+  .formBody {
+    padding: 8px 18px 20px;
+  }
+  .formFooter {
+    padding: 12px 18px;
+  }
+}
+
+/* ----- empty state for missing guest ----- */
+.empty {
+  padding: 48px 22px;
+  text-align: center;
+  color: var(--mantine-color-gray-6);
+  font-size: 13px;
+}
+
+/* nationality / country line with flag */
+.countryLine {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.countryLine .swatch {
+  width: 16px;
+  height: 12px;
+  border-radius: 2px;
+  background: var(--mantine-color-gray-3);
+  display: inline-block;
+  flex-shrink: 0;
+}
+.countryLine .flag {
+  font-size: 15px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* clickable above z-index of the booking drawer overlay  */
+:global(.guest-details-drawer-overlay) {
+  /* Sits above the booking drawer (Mantine modal default = 200) but below the
+   * popover/combobox layer (300), so Select dropdowns rendered from inside the
+   * drawer appear in front of it.
+   */
+  z-index: 250;
+}
+
+@media (max-width: 520px) {
+  .head {
+    padding: 16px 18px 12px;
+  }
+  .body {
+    padding: 8px 18px 24px;
+  }
+  .kvGrid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .span2 {
+    grid-column: span 1;
+  }
+}

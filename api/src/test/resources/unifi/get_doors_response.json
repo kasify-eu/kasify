@@ -1,0 +1,35 @@
+{
+  "code": 1,
+  "codeS": "SUCCESS",
+  "msg": "success",
+  "error": "",
+  "data": [
+    {
+      "group_name": "resource_list",
+      "group_type": "resource",
+      "group_id": "",
+      "group_configs": null,
+      "group_resources": [
+        {
+          "resource_type": "floor",
+          "resource_id": "d57e449f-f9b9-4c77-831b-ded1757cf9b7",
+          "resource_name": "1F",
+          "resources": [
+            {
+              "resource_type": "door",
+              "resource_id": "7f755fdd-6fc5-40e7-a6be-c6c6201cc5e5",
+              "resource_name": "Puerta Almacen",
+              "resource_extra_type": "UA-Hub-Door-Mini"
+            },
+            {
+              "resource_type": "door",
+              "resource_id": "6a3596e3-bcf9-4aea-b524-f32c88e9db74",
+              "resource_name": "Puerta Exterior",
+              "resource_extra_type": "UAH"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

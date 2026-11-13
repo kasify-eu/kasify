@@ -1,0 +1,18 @@
+{{member_name}} se ha unido a {{property_name}}
+
+{{member_name}} ha aceptado la invitación y ahora tiene acceso a {{property_name}}
+en Kasify como {{access_level_label}}.
+
+Datos del miembro
+--------------------------
+Nombre: {{member_name}}
+Correo: {{member_email}}
+Rol:    {{access_level_label}}
+
+Gestiona el equipo de tu propiedad en Kasify en {{dashboard_url}}.
+
+Si no esperabas esto, puedes eliminar al miembro desde los ajustes de la propiedad.
+
+— El equipo de Kasify
+
+Recibes este correo porque gestionas {{property_name}} en Kasify.

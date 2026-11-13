@@ -1,0 +1,31 @@
+SES Hospedajes rejected the establishment code of {{property_name}}
+
+The Spanish guest registry (SES Hospedajes) rejected a submission from Kasify
+because it does not recognize the establishment code configured for this
+property.
+
+Error reported by SES
+--------------------------
+{{error_message}}
+
+Affected property
+--------------------------
+Property:           {{property_name}}
+Establishment code: {{establishment_code}}
+
+Guest-registry submissions for THIS PROPERTY are PAUSED until the code is
+fixed. Your other properties keep filing normally. Once you correct and save
+the code in Kasify, pending submissions resume automatically within the hour.
+
+How to fix it
+--------------------------
+1. Open your SES portal and copy the establishment code
+   (codigoEstablecimiento) exactly as shown — it is assigned by SES and
+   leading zeros matter.
+2. Make sure it is the ESTABLISHMENT code, not the landlord code
+   (codigoArrendador) — mixing them up is the most common cause of this error.
+3. Enter the corrected code for {{property_name}} in Kasify: {{settings_url}}
+
+— The Kasify team
+
+You're receiving this because you own this account on Kasify.

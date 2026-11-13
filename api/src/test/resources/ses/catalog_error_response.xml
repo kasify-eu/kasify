@@ -1,0 +1,17 @@
+<SOAP-ENV:Envelope
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:catalogoResponse
+                xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion"
+                xmlns="">
+            <resultado>
+                <codigo>10100</codigo>
+                <descripcion>Catalogo no encontrado</descripcion>
+            </resultado>
+            <respuesta>
+                <resultado/>
+            </respuesta>
+        </ns3:catalogoResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

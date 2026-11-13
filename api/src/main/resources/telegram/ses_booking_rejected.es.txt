@@ -1,0 +1,5 @@
+⚠️ SES Hospedajes rechazó el registro de una reserva de {{property_name}} ({{communication_type_label}}, {{guest_name}}, {{booking_from}} → {{booking_to}}): {{error_message}}
+
+Corrige los datos de la reserva y Kasify reintentará el registro automáticamente.
+
+Revisar la reserva: {{booking_url}}

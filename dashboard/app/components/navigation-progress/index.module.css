@@ -1,0 +1,31 @@
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 2000;
+  background: #0f172a;
+  transform-origin: left;
+  animation: progress 1.5s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Stays invisible for the first ~100ms so fast navigations never flash it. */
+@keyframes progress {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  7% {
+    opacity: 0;
+  }
+  15% {
+    transform: scaleX(0.35);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(0.9);
+    opacity: 1;
+  }
+}

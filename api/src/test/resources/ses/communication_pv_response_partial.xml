@@ -1,0 +1,39 @@
+<SOAP-ENV:Envelope
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:comunicacionResponse
+                xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion"
+                xmlns="">
+            <respuesta>
+                <codigo>0</codigo>
+                <descripcion>Operacion realizada correctamente</descripcion>
+                <lote>a1b2c3d4-e5f6-7890-abcd-ef1234567890</lote>
+            </respuesta>
+            <resultado>
+                <lote>a1b2c3d4-e5f6-7890-abcd-ef1234567890</lote>
+                <tipoComunicacion>PV</tipoComunicacion>
+                <tipoOperacion>A</tipoOperacion>
+                <fechaPeticion>2026-04-15T10:00:00</fechaPeticion>
+                <fechaProcesamiento>2026-04-15T10:00:01</fechaProcesamiento>
+                <codigoEstado>0</codigoEstado>
+                <descEstado>Procesado correctamente</descEstado>
+                <identificadorUsuario>testuser</identificadorUsuario>
+                <nombreUsuario>Test User</nombreUsuario>
+                <codigoArrendador>0000000001</codigoArrendador>
+                <aplicacion>Kasify</aplicacion>
+                <resultadoComunicaciones>
+                    <resultadoComunicacion>
+                        <orden>1</orden>
+                        <codigoComunicacion>comm-uuid-001</codigoComunicacion>
+                    </resultadoComunicacion>
+                    <resultadoComunicacion>
+                        <orden>2</orden>
+                        <tipoError>VAL</tipoError>
+                        <error>Documento de identidad no valido</error>
+                    </resultadoComunicacion>
+                </resultadoComunicaciones>
+            </resultado>
+        </ns3:comunicacionResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

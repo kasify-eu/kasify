@@ -1,0 +1,301 @@
+/* Kasify horizontal timeline — ported from design canvas v1.
+   Variables are scoped to the component root so we don't conflict with Mantine. */
+.wrap {
+  --kf-line: oklch(0.92 0.004 270);
+  --kf-line-2: oklch(0.95 0.003 270);
+  --kf-fill: oklch(0.975 0.004 270);
+  --kf-ink: oklch(0.18 0.01 270);
+  --kf-ink-2: oklch(0.38 0.01 270);
+  --kf-ink-3: oklch(0.55 0.008 270);
+  --kf-ink-4: oklch(0.72 0.006 270);
+
+  border: 1px solid var(--kf-line);
+  border-radius: 12px;
+  background: #fff;
+  overflow: auto;
+  position: relative;
+  max-width: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--kf-ink);
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.head {
+  display: grid;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #fff;
+  border-bottom: 1px solid var(--kf-line);
+}
+
+.corner {
+  padding: 12px 16px;
+  border-right: 1px solid var(--kf-line);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 1;
+}
+.cornerTitle { font-size: 12px; font-weight: 700; }
+
+.day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0;
+  border-right: 1px solid var(--kf-line-2);
+  font-variant-numeric: tabular-nums;
+}
+.day[data-weekend="true"] { background: var(--kf-fill); }
+.day[data-today="true"] { background: oklch(0.97 0.04 75); }
+.dnum { font-size: 13px; font-weight: 600; color: var(--kf-ink); }
+.day[data-today="true"] .dnum {
+  background: var(--kf-ink);
+  color: #fff;
+  border-radius: 999px;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+}
+.dwd {
+  font-size: 9px;
+  color: var(--kf-ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+.body { position: relative; }
+
+/* Empty spacer row rendered after the last property so the horizontal
+   scrollbar doesn't overlap event content. Uses the same grid layout
+   as a real row so the day-column borders continue all the way down. */
+.spacer {
+  display: grid;
+  height: 16px;
+  position: relative;
+}
+.spacer .prop { padding: 0; }
+
+.row {
+  display: grid;
+  border-bottom: 1px solid var(--kf-line-2);
+  position: relative;
+}
+.row:last-child { border-bottom: 0; }
+
+.prop {
+  padding: 10px 16px;
+  border-right: 1px solid var(--kf-line);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: sticky;
+  left: 0;
+  background: #fff;
+  z-index: 6;
+  min-width: 0;
+}
+.propName {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.propMeta { font-size: 11px; color: var(--kf-ink-3); }
+
+.cell { border-right: 1px solid var(--kf-line-2); position: relative; }
+.cell[data-weekend="true"] { background: var(--kf-fill); }
+.cell[data-today="true"],
+.cell[data-today="true"][data-weekend="true"] { background: oklch(0.97 0.04 75); }
+
+.cellClickable { cursor: pointer; }
+.cellClickable:hover { box-shadow: inset 0 0 0 2px var(--kf-line-2); }
+.cellAdd {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--kf-ink-2, oklch(0.5 0.02 270));
+  background: var(--kf-fill, oklch(0.96 0.005 270));
+  opacity: 0;
+  transition: opacity 0.12s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.cellClickable:hover .cellAdd,
+.cellClickable:focus-visible .cellAdd { opacity: 1; }
+
+.bar {
+  position: absolute;
+  z-index: 3;
+  border-radius: 8px;
+  border: 1px solid;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 120ms, box-shadow 120ms;
+  background: #fff;
+}
+.bar:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -4px rgba(0, 0, 0, 0.18);
+  z-index: 4;
+}
+.barLabel {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.barChannel {
+  font-size: 9px;
+  color: #fff;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+/* Pill task strategy */
+.taskSingle {
+  position: absolute;
+  z-index: 3;
+  border-radius: 6px;
+  border: 1px solid;
+  height: 14px;
+  padding: 0 4px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+}
+.taskDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.taskLbl {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.taskPill {
+  position: absolute;
+  z-index: 3;
+  height: 14px;
+  padding: 0 4px 0 5px;
+  border-radius: 7px;
+  background: #fff;
+  border: 1px solid var(--kf-line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: border-color 120ms, background 120ms;
+}
+.taskPill:hover {
+  border-color: var(--kf-ink-3);
+  background: var(--kf-fill);
+}
+.taskPillNum {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--kf-ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.taskPillDots {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+.taskPillDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+}
+.taskPillDotMore {
+  background: transparent !important;
+  color: var(--kf-ink-3);
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  width: auto;
+  height: auto;
+}
+
+/* Multi-day task bars (in the task lane below bookings) */
+.taskBar {
+  position: absolute;
+  z-index: 3;
+  border-radius: 6px;
+  border: 1px solid;
+  padding: 0 6px 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0,
+    transparent 5px,
+    rgba(0, 0, 0, 0.035) 5px,
+    rgba(0, 0, 0, 0.035) 6px
+  );
+  transition: filter 120ms, transform 120ms;
+}
+.taskBar:hover {
+  filter: brightness(0.97);
+  transform: translateY(-0.5px);
+}
+.taskBarEdge {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+.taskBarLbl {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}

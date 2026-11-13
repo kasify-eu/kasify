@@ -1,0 +1,50 @@
+---
+title: Tareas y limpieza
+---
+
+Cada vez que Kasify importa una reserva, se crea automáticamente una **tarea de limpieza** asociada a ella. Esta página explica cómo se asignan esas tareas y cómo cambiar el responsable cuando hace falta.
+
+## Cómo se generan las tareas de limpieza
+
+- Al **importar una reserva** desde un canal (Airbnb, Booking, VRBO, etc.) Kasify genera la tarea de limpieza correspondiente.
+- La tarea queda vinculada al checkout de la reserva.
+- Solo las tareas de tipo **limpieza** se generan de forma automática. Las tareas de otros tipos (mantenimiento, etc.) se crean manualmente cuando se necesitan.
+
+## Limpiador predeterminado de la propiedad
+
+Cada propiedad puede tener un **limpiador predeterminado**: el miembro del equipo al que se asignan automáticamente las nuevas tareas de limpieza de esa propiedad.
+
+Para configurarlo:
+
+1. Abre **Propiedades**, selecciona la propiedad y pulsa **Configuración**.
+2. Localiza la sección **Configuración de limpieza**.
+3. En **Limpiador predeterminado**, elige un miembro del equipo de la propiedad.
+4. Guarda los cambios.
+
+A partir de ese momento, cada nueva reserva importada en esta propiedad genera una tarea de limpieza ya asignada a esa persona.
+
+:::tip
+El limpiador predeterminado solo puede ser un miembro del equipo de la propiedad. Si la persona aún no está en el equipo, invítala primero — consulta [Invitar y gestionar el equipo](/es/team/invitations).
+:::
+
+Toda propiedad tiene **siempre** un limpiador predeterminado: si aún no has añadido a nadie del equipo (Personal o Colaborador externo), las tareas se asignan al **propietario** de la propiedad. En cuanto incorpores a otros miembros, podrás reasignarlo desde la sección **Configuración de limpieza**.
+
+## Cambiar el limpiador de una reserva concreta
+
+El limpiador predeterminado se aplica en el momento de crear la tarea, pero siempre puedes **reasignarla** en una reserva concreta sin alterar el ajuste global de la propiedad:
+
+1. Abre la reserva desde el listado de reservas o desde el calendario.
+2. En el detalle de la reserva, localiza la **tarea de limpieza** asociada.
+3. Cambia el responsable seleccionando otro miembro del equipo.
+
+El cambio afecta solo a esa reserva. El limpiador predeterminado de la propiedad se mantiene para las reservas futuras.
+
+## Quién ve las tareas de limpieza
+
+La visibilidad de cada tarea depende del rol que la persona tenga en la propiedad:
+
+- **Propietario** y **Responsable** (Manager): ven todas las tareas de la propiedad y pueden reasignarlas.
+- **Personal** (Staff): ve únicamente las tareas que tiene asignadas, **no las de otros miembros del equipo**. Ve también todas las reservas de la propiedad (sin datos personales del huésped), lo que le permite consultar el calendario y organizarse.
+- **Colaborador externo** (Contractor): solo ve las tareas que tenga asignadas, con el contexto mínimo de la reserva (fechas, número de huéspedes, instrucciones).
+
+Para más detalle, consulta [Roles y permisos](/es/roles).

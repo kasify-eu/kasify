@@ -1,0 +1,31 @@
+{
+  "code": "SUCCESS",
+  "msg": "success",
+  "data": {
+    "data": [
+      {
+        "id": "visitor-1",
+        "first_name": "Alice",
+        "last_name": "Smith",
+        "status": "UPCOMING",
+        "mobile_phone": "+1111111111",
+        "email": "alice@example.com",
+        "visit_reason": "Interview",
+        "start_time": 1688546460,
+        "end_time": 1688572799
+      },
+      {
+        "id": "visitor-2",
+        "first_name": "Bob",
+        "last_name": "Johnson",
+        "status": "ACTIVE",
+        "mobile_phone": "+2222222222",
+        "email": "bob@example.com",
+        "visit_reason": "Business",
+        "start_time": 1688546460,
+        "end_time": 1688572799
+      }
+    ],
+    "total": 2
+  }
+}

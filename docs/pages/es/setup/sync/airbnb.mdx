@@ -1,0 +1,45 @@
+---
+title: Sincronizar el calendario de Airbnb
+navigation_label: Conectar Airbnb
+---
+
+Conecta tu anuncio de Airbnb con Kasify para que las reservas se importen **automáticamente** a tu calendario. No tienes que introducir nada a mano: en cuanto un huésped reserva en Airbnb, la estancia aparece en Kasify.
+
+La conexión se hace **por propiedad** y funciona en **un solo sentido**: Kasify lee el calendario de Airbnb, pero no modifica tu anuncio.
+
+## 1. Copiar el enlace del calendario en Airbnb
+
+Airbnb ofrece un enlace de calendario (formato *iCal*) para cada anuncio:
+
+1. Entra en Airbnb y abre el **Calendario** del anuncio que quieres conectar.
+2. Busca la sección **Conectar calendarios** (*Connect calendars*) y pulsa **Conectar con otra página web** (*Connect to another website*).
+3. En el panel que se abre, en el **Paso 1 — Añade este enlace a la otra página web**, pulsa **Copiar** (*Copy*) junto a **Enlace del calendario de Airbnb** (*Airbnb calendar link*).
+
+El enlace empieza por `https://www.airbnb.com/…`.
+
+> Copia el **enlace del calendario de Airbnb** de ese panel, no la dirección de la barra del navegador. Son distintos.
+
+:::info
+Para la guía paso a paso del propio Airbnb, consulta [Sincroniza tu calendario con otras webs](https://www.airbnb.com/help/article/99) en el Centro de ayuda de Airbnb.
+:::
+
+## 2. Pegar el enlace en Kasify
+
+1. En Kasify, abre **Propiedades** y entra en la propiedad correspondiente.
+2. Pulsa **Configuración**.
+3. Ve a la sección **Integración con Airbnb**.
+4. Pega la URL en el campo **Enlace de calendario de Airbnb**.
+5. Pulsa **Guardar cambios**.
+
+También puedes hacerlo al dar de alta la propiedad, desde **Añadir propiedad**: la sección **Integración con Airbnb** está en el mismo formulario.
+
+## Cuándo aparecen las reservas
+
+La primera sincronización puede tardar **unos minutos**. A partir de ahí, Kasify vuelve a consultar el calendario de Airbnb de forma **periódica y automática** (aproximadamente cada hora), sin que tengas que hacer nada.
+
+## Consejos y resolución de problemas
+
+- **Si no aparece ninguna reserva**, revisa que has pegado el enlace de exportación correcto. Una URL incorrecta se marca como error y no importa nada (en lugar de sincronizar cero reservas en silencio).
+- **Cada propiedad tiene su propio enlace.** Si gestionas varios anuncios, repite el proceso en cada propiedad con el enlace de su anuncio.
+- **Para desconectar Airbnb**, borra la URL con la "x" (**Borrar URL**) junto al campo y pulsa **Guardar cambios**. Dejarán de importarse reservas nuevas de ese canal.
+- **Solo importación.** Kasify no envía tu calendario de vuelta a Airbnb; para bloquear fechas en Airbnb usa las herramientas del propio Airbnb.

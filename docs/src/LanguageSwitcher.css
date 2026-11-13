@@ -1,0 +1,20 @@
+/* Controls the top-nav category tabs that represent languages.
+ *
+ * Strategy: hide both by default so first paint never shows the wrong tab.
+ * LanguageSwitcher sets `html[data-locale]` in useEffect; that reveals only
+ * the active locale's tab.
+ *
+ * Scoped to `header` so sidebar/mobile-drawer links are never affected
+ * (the mobile drawer is portaled to document.body, outside header). */
+html:not([data-locale]) header nav > ul > li:has(> a[href^="/en/"]),
+html:not([data-locale]) header nav > ul > li:has(> a[href^="/es/"]) {
+  display: none;
+}
+
+html[data-locale="en"] header nav > ul > li:has(> a[href^="/es/"]) {
+  display: none;
+}
+
+html[data-locale="es"] header nav > ul > li:has(> a[href^="/en/"]) {
+  display: none;
+}

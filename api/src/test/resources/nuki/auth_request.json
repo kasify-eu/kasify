@@ -1,0 +1,41 @@
+{
+  "remoteAllowed": true,
+  "name": "TOKEN - API CODE",
+  "code": "112233",
+  "allowedFromTime": 0,
+  "allowedUntilTime": 0,
+  "allowedFromDate": "2025-10-03T16:11:46.368283",
+  "allowedUntilDate": "2025-10-10T16:11:46.368283",
+  "type": 13,
+  "allowedWeekDays": 127,
+  "smartLockIds": [
+    22599677111
+  ]
+}
+
+{
+  "remoteAllowed": true,
+  "name": "DELETE ME",
+  "allowedFromDate": "2025-10-03T14:12:00.000Z",
+  "allowedUntilDate": "2025-10-10T14:12:00.000Z",
+  "allowedFromTime": 0,
+  "allowedUntilTime": 0,
+  "allowedWeekDays": 127,
+  "code": 631391,
+  "type": 13
+}
+
+{
+  "remoteAllowed": true,
+  "name": "TOKEN - API CODE",
+  "code": "223344",
+  "allowedFromTime": 0,
+  "allowedUntilTime": 0,
+  "allowedFromDate": "2025-10-03T16:29:54.110Z",
+  "allowedUntilDate": "2025-10-10T16:29:54.110Z",
+  "type": 13,
+  "allowedWeekDays": 127,
+  "smartLockIds": [
+    "22599677111"
+  ]
+}

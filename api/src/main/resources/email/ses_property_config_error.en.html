@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SES Hospedajes rejected the establishment code of {{property_name}}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111;-webkit-font-smoothing:antialiased;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f6;padding:40px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;padding:40px;max-width:560px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+            <tr>
+              <td style="padding-bottom:32px;">
+                <span style="font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#8b8b92;">Kasify</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:24px;font-weight:700;line-height:1.25;padding-bottom:12px;color:#0f0f11;">
+                SES Hospedajes rejected the establishment code of {{property_name}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:20px;">
+                The Spanish guest registry (SES Hospedajes) rejected a submission from Kasify because
+                it does not recognize the establishment code configured for this property.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom:24px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;">
+                  <tr>
+                    <td style="padding:16px 20px;font-size:14px;line-height:1.7;color:#7f1d1d;">
+                      {{error_message}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.7;color:#3a3a40;padding-bottom:24px;">
+                <strong>Property:</strong> {{property_name}}<br />
+                <strong>Establishment code:</strong> {{establishment_code}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:24px;">
+                Guest-registry submissions for <strong>this property</strong> are
+                <strong>paused</strong> until the code is fixed. Your other properties keep filing
+                normally. Once you correct and save the code in Kasify, pending submissions resume
+                automatically within the hour.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:0 0 8px 0;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                    <td align="center" style="padding:0 12px;font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:#9a9aa1;white-space:nowrap;">
+                      how to fix it
+                    </td>
+                    <td style="border-top:1px solid #ececee;height:1px;line-height:1px;font-size:1px;">&nbsp;</td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.7;color:#3a3a40;padding:20px 0 28px 0;">
+                1. Open your SES portal and copy the establishment code
+                (<em>codigoEstablecimiento</em>) exactly as shown &mdash; it is assigned by SES and
+                leading zeros matter.<br />
+                2. Make sure it is the <strong>establishment</strong> code, not the landlord code
+                (<em>codigoArrendador</em>) &mdash; mixing them up is the most common cause of this
+                error.<br />
+                3. Enter the corrected code for {{property_name}} in Kasify.
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:28px;">
+                <a href="{{settings_url}}" style="display:inline-block;background:#0f0f11;color:#ffffff;font-size:15px;font-weight:600;line-height:1;text-decoration:none;padding:14px 28px;border-radius:10px;">
+                  Fix the establishment code
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;color:#8b8b92;line-height:1.55;padding-top:8px;border-top:1px solid #ececee;">
+                If the button doesn't work, open
+                <a href="{{settings_url}}" style="color:#0366d6;text-decoration:none;">{{settings_url}}</a>.
+              </td>
+            </tr>
+          </table>
+          <div style="font-size:11px;color:#9a9aa1;padding-top:16px;">
+            You're receiving this because you own this account on Kasify.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 0 12px 0;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.dateNav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.monthLabel {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--mantine-color-dark-7);
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* On phones there isn't room for the view toggle, property select and date
+   navigation on a single row, so wrap into two: date nav on top, the view
+   controls below. */
+@media (max-width: 640px) {
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .right {
+    order: 1;
+    flex: 1 1 100%;
+  }
+
+  .dateNav {
+    flex: 1 1 auto;
+    justify-content: space-between;
+  }
+
+  .left {
+    order: 2;
+    flex: 1 1 100%;
+  }
+}

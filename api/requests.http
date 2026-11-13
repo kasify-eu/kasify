@@ -1,0 +1,210 @@
+@host = http://0.0.0.0:8080
+@token = {{pat}}
+
+### Fetch fresh access token using refresh token
+# @name getToken
+POST https://{{kinde_domain}}/oauth2/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type = refresh_token &
+client_id = {{client_id}} &
+client_secret = {{client_secret}} &
+refresh_token = {{refresh_token}}
+
+> {%
+    client.global.set("token", response.body.access_token);
+%}
+
+### Create property
+POST {{host}}/v1/properties
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "name": "Casita6 xxxxxxxxxxxxxxxxxxxxxxx"
+}
+
+### Get Properties
+GET {{host}}/v1/properties
+Authorization: Bearer {{token}}
+
+### Get Property
+GET {{host}}/v1/properties/ee1d2ad1-6b74-4da1-98e5-32c1c648c8b6
+Authorization: Bearer {{token}}
+
+### Get Tasks
+GET {{host}}/v1/tasks
+Authorization: Bearer {{token}}
+
+### Get Cleaning Task
+GET {{host}}/v1/tasks/18cdeb71-a75c-406e-b9a4-eb531afd2b6e
+Authorization: Bearer {{token}}
+
+### Get Single Property
+GET {{host}}/v1/properties/20000000-0000-0000-0000-000000000001
+Authorization: Bearer {{token}}
+
+### Get Single Property Not Found
+GET {{host}}/v1/properties/fe6726ed-d05e-4990-9817-9a9244b9c650
+Authorization: Bearer {{token}}
+
+### Get Single Error
+GET {{host}}/v1/properties/propertytest
+Authorization: Bearer {{token}}
+
+############
+### SES HOSPEDAJES (admin, requires "admin" role)
+@bookingId = 40000000-0000-0000-0000-000000000001
+@sesCommunicationId = 00000000-0000-0000-0000-000000000000
+
+### Get a booking's SES audit log (submissions + communications)
+GET {{host}}/v1/admin/ses/bookings/{{bookingId}}/submissions
+Authorization: Bearer {{token}}
+
+### Submit the booking's Parte de Viajeros (PV) to SES
+# 200 accepted · 202 rejected by SES · 409 not eligible (no_integration, no_establishment_code,
+# no_checkin_completed, already_submitted, before_checkin, no_guests, cancelled)
+# On acceptance also writes the libro-registro entry (guest_registry_entries).
+POST {{host}}/v1/admin/ses/bookings/77a6777f-6078-40e7-a2e9-137aadb5713c/submit
+Authorization: Bearer {{token}}
+
+### Submit the booking's Reserva de Hospedaje (RH) to SES (direct bookings only)
+POST {{host}}/v1/admin/ses/bookings/{{bookingId}}/submit-rh
+Authorization: Bearer {{token}}
+
+### Poll a communication's estado (consultaLote) — mirrors the result onto the libro-registro entry
+POST {{host}}/v1/admin/ses/communications/{{sesCommunicationId}}/poll
+Authorization: Bearer {{token}}
+
+### Get Property Events
+GET {{host}}/v1/properties/20000000-0000-0000-0000-000000000001/calendar
+Authorization: Bearer {{token}}
+
+############
+### BOOKINGS
+
+## Get booking details
+GET {{host}}/v1/bookings/8f730a06-a0c0-400f-ab77-1d5f4df0d3c9
+Authorization: Bearer {{token}}
+
+### Get Account Bookings
+GET {{host}}/v1/bookings
+Authorization: Bearer {{token}}
+
+### Get Account Bookings (ordered by checkout)
+GET {{host}}/v1/bookings?sort=to,asc
+Authorization: Bearer {{token}}
+
+### Get Account Bookings (ordered by checkout)
+GET {{host}}/v1/bookings?checkin_from=2025-09-01&checkin_to=2025-09-02&sort=to,asc
+Authorization: Bearer {{token}}
+
+### Get Single Property Bookings
+GET {{host}}/v1/properties/20000000-0000-0000-0000-000000000001/bookings
+Authorization: Bearer {{token}}
+
+### Create booking
+POST {{host}}/v1/properties/fe6726ed-d05e-4990-9817-9a9244b9c650/bookings
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "from": "2026-03-01",
+  "to": "2026-03-02",
+  "channel": "airbnb",
+  "channel_id": "testhttp1"
+}
+
+### Get Account Test
+GET {{host}}/v1/account
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Get Account (with real token)
+GET {{host}}/v1/account
+Authorization: Bearer {{realToken}}
+Content-Type: application/json
+
+### Get Profile Test
+GET {{host}}/v1/profile
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Calendar tests
+### Get all events
+GET {{host}}/v1/calendar?from=2026-05-01&to=2026-05-30
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### Activities tests
+GET {{host}}/v1/activities
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+### Checkin tests
+POST {{host}}/v1/bookings/d1f6e156-b9d9-405c-a8fa-3a1347e44541/checkin
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+############
+### INTEGRATIONS
+
+### Nuki integration
+POST {{host}}/v1/integrations/nuki/
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "nuki_token": "MY_TOKEN"
+}
+
+### Integrations list
+GET {{host}}/v1/integrations
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### Integrations list
+GET {{host}}/v1/integrations/nuki/6a69dc29-95cd-4a67-a6ca-fcaef081389a/smartlocks
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### Get Booking
+GET {{host}}/v1/bookings/e3c0b98c-f49c-459b-8814-b7a8938fd08f
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+
+### Get Activities
+GET {{host}}/v1/activities
+Authorization: Bearer {{token}}
+
+### Get Activities
+GET {{host}}/health
+
+### Get Info
+GET {{host}}/
+
+### Public task
+GET http://0.0.0.0:8080/v1/public/tasks/ed049c57d10bd26366d358a997d92dea239bc90571254454d24b2b4d2b6e1ab1
+
+### Admin - Get Users
+GET {{host}}/v1/users
+Authorization: Bearer {{token}}
+
+### GEO
+GET {{host}}/v1/geo/countries
+
+### GEO
+GET {{host}}/v1/geo/countries?query=sspaña
+
+### GEO
+GET {{host}}/v1/geo/countries?size=20
+
+### GEO
+GET {{host}}/v1/geo/provinces
+
+### GEO
+GET {{host}}/v1/geo/cities

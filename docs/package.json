@@ -1,0 +1,26 @@
+{
+  "name": "docs",
+  "version": "0.9.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "zudoku dev",
+    "build": "NODE_OPTIONS=--max-old-space-size=4096 zudoku build && node scripts/seo-postprocess.mjs",
+    "preview": "zudoku preview",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0",
+    "zudoku": "0.79.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^6",
+    "eslint": "^8",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8"
+  }
+}

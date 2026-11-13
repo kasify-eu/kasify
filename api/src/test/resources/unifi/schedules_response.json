@@ -1,0 +1,58 @@
+{
+  "code": 1,
+  "codeS": "SUCCESS",
+  "msg": "success",
+  "error": "",
+  "data": [
+    {
+      "unique_id": "857a4694-aaa5-4fca-974b-3de5c21896b4",
+      "name": "Always Access",
+      "type": "",
+      "holiday_timezone_id": "e91476dc-825c-4661-8250-913e6d07aa0a",
+      "user_timezone_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": true,
+      "is_private": false,
+      "schedule_type": "access",
+      "week_schedule": {
+        "id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "unique_id": "f1dc2cfb-8122-4f8f-ba43-3e5ceb6b5f0b",
+        "name": "Always Access",
+        "description": "",
+        "week_schedule": {
+          "0": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ],
+          "1": [
+            {
+              "start_time": "00:00:00",
+              "end_time": "23:59:59"
+            }
+          ]
+        },
+        "system": true,
+        "is_default": true
+      }
+    },
+    {
+      "unique_id": "6b5b0dc4-7949-495b-ad8f-07740e985e22",
+      "name": "Default Site Schedule",
+      "type": "user_entry",
+      "holiday_timezone_id": "d7dac947-c307-4eca-bc9a-7cb6c02f230c",
+      "user_timezone_id": "dd5eefd9-6fc2-41ba-847c-22b6efbca5f5",
+      "holiday_group_id": "933b9d5a-a219-42af-a172-f48f38bac361",
+      "status": 1,
+      "create_time": "2024-10-11T08:23:24+02:00",
+      "update_time": "2024-10-11T08:23:24+02:00",
+      "is_default": false,
+      "is_private": false,
+      "schedule_type": "access"
+    }
+  ]
+}

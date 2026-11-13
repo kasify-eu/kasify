@@ -1,0 +1,5 @@
+⚠️ SES Hospedajes rejected the establishment code of {{property_name}} (code {{establishment_code}}): {{error_message}}
+
+Guest-registry submissions for this property are paused until you fix the code. Your other properties keep filing normally.
+
+Fix it here: {{settings_url}}

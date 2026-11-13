@@ -1,0 +1,76 @@
+---
+title: Troubleshooting SES Hospedajes submissions
+navigation_label: Troubleshooting
+---
+
+Kasify files your guest registries with SES Hospedajes automatically. Most submissions go through without you noticing; this page explains what to do when one doesn't.
+
+## How a submission progresses
+
+SES doesn't accept or reject a registry in one step. Kasify hands the registry to the Ministry's platform, SES queues it, processes it, and only then issues a verdict. Kasify follows the whole journey and shows it as a status on the booking:
+
+| Status in Kasify | What's happening |
+|---|---|
+| **Pending** | The registry is queued on SES's side, waiting to be processed. |
+| **Processing** | SES is reviewing the data. This normally takes minutes, but can take longer when the platform is busy. |
+| **Accepted** | The registry is filed. Nothing left to do. |
+| **Rejected** | SES refused the registry. The reason appears next to the status — the rest of this page tells you how to act on it. |
+
+Only **Accepted** means the legal obligation is fulfilled. If a booking's registry sits in any other state, keep an eye on it.
+
+## Step 1 — Is it the connection or the data?
+
+A rejection has one of two root causes, and you can tell them apart at a glance:
+
+- **Every submission fails, for every booking** → the problem is your SES account setup in Kasify. Start with [the connection checklist](#step-2--verify-your-ses-connection).
+- **One specific booking fails, others go through** → the problem is in that booking's guest or booking data. Jump to [what SES validates](#step-3--review-what-ses-validates).
+
+## Step 2 — Verify your SES connection
+
+Kasify authenticates against SES with three values that must all come from the *same* SES registration: your **arrendador code**, your **web service username**, and your **web service password**. If any of the three is off, SES turns every submission away before even looking at the guests.
+
+Work through these checks in order:
+
+1. **Right kind of credentials.** SES gives you two separate logins: the Cl@ve/certificate access you use in the browser, and a dedicated *servicio web* user for software like Kasify. Kasify needs the second one. If you never created it, open your account settings on [hospedajes.ses.mir.es](https://hospedajes.ses.mir.es) and activate *Envío de comunicaciones por servicio web* — SES issues the web service credentials at that moment. (Skipping this step is the single most common setup problem; SES reports it as error `10120`.)
+2. **Arrendador code, character by character.** It's a 10-character identifier and SES compares it literally — a missing leading zero is enough for SES not to find you (error `10103`).
+3. **Matching trio.** If you manage several SES registrations, make sure the code and the credentials you entered in Kasify belong to the same one. A valid user with someone else's arrendador code still fails (errors `10103`/`10107`).
+4. **Establishment registered.** The property's establishment code must exist under your registration. You'll find it in the *Establecimientos* section of the SES portal; copy it into the property's SES settings in Kasify. If SES answers *"No existe un establecimiento para ese código"*, this is the value to fix.
+5. **Allowed activity.** SES only accepts the communication types your registration covers. If SES reports that your arrendador can't perform this type of communication (`10119`), review your activity details in the portal or ask SES support.
+
+Two SES answers deserve special mention because the right reaction is *not* to fix anything:
+
+- **`10121`** — SES often answers this when it believes it **already has this submission**. Resubmitting the same thing again won't help; check the status of the earlier submission in Kasify first.
+- **`10999`** — an internal failure on the Ministry's platform. Your data and your setup are fine. Kasify retries on its own; if the error keeps coming back for hours, SES support (`ses.hospedajes@interior.es`) is the right escalation path.
+
+Anything else that looks like a bare error number is usually a technical fault in the submission itself — reach out to Kasify support and we'll investigate.
+
+## Step 3 — Review what SES validates
+
+When the connection is fine, a rejection means some field in the registry didn't pass the Ministry's checks. SES applies a fixed set of rules; knowing them lets you fix the record in one go instead of trading rejections with the platform.
+
+**Spanish identity documents carry extra requirements.** A guest registered with a DNI or NIE must have **both surnames** filled in, plus the **support number** — the short alphanumeric code (e.g. `AAA123456`) printed on the reverse of the card, which is *not* the DNI number itself. Type it clean: no spaces, no hyphens. And only guests who genuinely hold a DNI or NIE may use those document types; a foreign visitor must be registered with their **passport**, even if they once lived in Spain.
+
+**Every guest needs a way to be contacted.** At least one of phone number or email must be present.
+
+**Addresses are cross-checked.** For Spanish addresses, the postal code must be five digits and actually belong to the municipality you selected. For foreign addresses, pick the country from the list — SES works with its own three-letter country codes, and Kasify maps your selection to them.
+
+**Minors must be linked to an adult.** Anyone under 18 in the party needs a declared **kinship** (parentesco) with one of the accompanying adults. Guests under 14 don't present an ID document at all — the kinship declaration is what stands in for it.
+
+**The booking itself is validated too.** Check-in must precede check-out, the number of travellers must line up with the registered guests, and the **payment method** must be declared — a registry without it is refused.
+
+In each case the fix is the same: open the guest record (or the booking) in Kasify, correct the field the rejection message points at, and let Kasify resubmit.
+
+## Resubmission: how Kasify retries
+
+- **After you edit the data**, Kasify picks the booking up again automatically — no button needed.
+- **Unchanged data is not resent.** SES already judged it; sending an identical copy would only produce the same rejection, so Kasify waits for an actual change.
+- **Temporary failures** (network hiccups, SES downtime) are different: those retry on their own until they get through.
+- If you want to force the issue, the booking's SES section has a **manual resubmit**.
+
+## Amending a registry SES already accepted
+
+Accepted registries are frozen in Kasify: the law obliges you to keep the submitted records untouched for three years, so guest edits are locked once filing succeeds. Corrections happen on the Ministry's side instead — sign in to the SES portal, open **Mis Comunicaciones**, locate the communication under the **Lotes** tab using the batch code shown on the submission in Kasify (SES's own notification emails quote it too), and amend the data there.
+
+## When the SES platform is down
+
+Outages show up as submissions lingering in **Pending**/**Processing** or failing with temporary errors. There's nothing to fix on your side: Kasify keeps retrying, and the regulation's 24-hour filing window counts from when the platform is back, not from when it broke.

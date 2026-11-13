@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>A booking could not be registered with SES Hospedajes — {{property_name}}</title>
+  </head>
+  <body style="margin:0;padding:0;background:#f4f4f6;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:#111;-webkit-font-smoothing:antialiased;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f6;padding:40px 16px;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:14px;padding:40px;max-width:560px;box-shadow:0 1px 2px rgba(0,0,0,0.04);">
+            <tr>
+              <td style="padding-bottom:32px;">
+                <span style="font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#8b8b92;">Kasify</span>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:24px;font-weight:700;line-height:1.25;padding-bottom:12px;color:#0f0f11;">
+                A booking could not be registered with SES Hospedajes
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:20px;">
+                The Spanish guest registry (SES Hospedajes) rejected a submission for a booking at
+                {{property_name}} because of a problem with the submitted data.
+              </td>
+            </tr>
+            <tr>
+              <td style="padding-bottom:24px;">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;">
+                  <tr>
+                    <td style="padding:16px 20px;font-size:14px;line-height:1.7;color:#7f1d1d;">
+                      {{error_message}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:14px;line-height:1.7;color:#3a3a40;padding-bottom:24px;">
+                <strong>Property:</strong> {{property_name}}<br />
+                <strong>Booking:</strong> {{guest_name}}<br />
+                <strong>Dates:</strong> {{booking_from}} &rarr; {{booking_to}}<br />
+                <strong>Communication:</strong> {{communication_type_label}}
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:15px;line-height:1.6;color:#3a3a40;padding-bottom:28px;">
+                Review the booking and its guests' details (document, support number, second
+                surname, contact details&hellip;) and fix what the error points at. As soon as you
+                save the correction, Kasify will <strong>retry the registration automatically</strong>
+                within the hour.
+              </td>
+            </tr>
+            <tr>
+              <td align="center" style="padding-bottom:28px;">
+                <a href="{{booking_url}}" style="display:inline-block;background:#0f0f11;color:#ffffff;font-size:15px;font-weight:600;line-height:1;text-decoration:none;padding:14px 28px;border-radius:10px;">
+                  Review the booking
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td style="font-size:12px;color:#8b8b92;line-height:1.55;padding-top:8px;border-top:1px solid #ececee;">
+                If the button doesn't work, open
+                <a href="{{booking_url}}" style="color:#0366d6;text-decoration:none;">{{booking_url}}</a>.
+              </td>
+            </tr>
+          </table>
+          <div style="font-size:11px;color:#9a9aa1;padding-top:16px;">
+            You are receiving this email because you own this Kasify account.
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

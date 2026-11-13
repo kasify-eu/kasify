@@ -1,0 +1,44 @@
+---
+title: Sync your Booking.com calendar
+navigation_label: Connect Booking.com
+---
+
+Connect your Booking.com listing to Kasify so bookings are imported into your calendar **automatically**. As soon as a reservation comes in on Booking.com, the booked dates show up in Kasify.
+
+The connection is set up **per property** and works **one way**: Kasify reads the Booking.com calendar, but it doesn't change your listing.
+
+## 1. Copy the calendar link from Booking.com
+
+Booking.com provides an export link (*iCal* format) for each listing from its extranet:
+
+1. Sign in to the **Booking.com extranet** and select the property you want to connect.
+2. Open **Rates & Availability** and go to **Sync calendars (iCal)**.
+3. In the export section, copy the calendar URL. It starts with `https://ical.booking.com/v1/export?t=…`.
+
+> Copy the **export** link that Booking.com gives you, not the address in your browser's bar. They're different.
+
+:::info
+For Booking.com's own step-by-step guide, see [How to synchronize your calendars across channels](https://partner.booking.com/en-us/help/rates-availability/extranet-calendar/how-synchronize-your-calendars-across-channels) in the Booking.com Partner Help Center.
+:::
+
+## 2. Paste the link into Kasify
+
+1. In Kasify, open **Properties** and go into the relevant property.
+2. Click **Settings**.
+3. Go to the **Booking.com Integration** section.
+4. Paste the URL into the **Booking.com Calendar Link** field.
+5. Click **Save Changes**.
+
+You can also do this when you first add the property, from **Add Property**: the **Booking.com Integration** section is in the same form.
+
+## When bookings appear
+
+The first sync can take **a few minutes**. After that, Kasify re-checks the Booking.com calendar **automatically on a regular basis** (roughly every hour), with nothing needed from you.
+
+## Tips and troubleshooting
+
+- **Guest details.** Booking.com exports its reservations as "Not available" date blocks. Because of that, Kasify imports the **booked dates** from this channel, but not guest details through the calendar.
+- **If no bookings appear**, check that you pasted the correct export link. An incorrect URL is flagged as an error and imports nothing (rather than silently syncing zero bookings).
+- **Each property has its own link.** If you manage several listings, repeat the steps on each property using that listing's link.
+- **To disconnect Booking.com**, clear the URL with the "x" (**Clear URL**) next to the field and click **Save Changes**. New bookings from that channel will stop importing.
+- **Import only.** Kasify doesn't send your calendar back to Booking.com; to block dates on Booking.com, use its extranet tools.

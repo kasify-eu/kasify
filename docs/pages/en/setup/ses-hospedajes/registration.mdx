@@ -1,0 +1,105 @@
+---
+title: Registering in SES Hospedajes
+navigation_label: Registration
+---
+
+Before Kasify can submit guest registries on your behalf, your property has to be registered in **SES Hospedajes** — the Spanish Ministry of Interior's platform for reporting guest data (Royal Decree 933/2021). This is a one-time registration (*alta*) that you complete directly on the government portal.
+
+This guide walks you through registering your property and obtaining the credentials you'll later enter in Kasify. Once you have them, follow [SES Hospedajes integration](/en/setup/ses-hospedajes/configuration) to connect everything.
+
+:::info
+This registration is done **once per property owner**, on the official portal — not inside Kasify. When you finish, you'll have an **arrendador code** and a set of **web-service credentials** that Kasify uses to send guest registries automatically.
+:::
+
+## Before you start
+
+Have the following ready. Everything here is free.
+
+- **A digital identification method:** a digital certificate, DNIe (electronic ID), or [Cl@ve](https://clave.gob.es).
+- **Signing software:** [AutoFirma](https://firmaelectronica.gob.es/Home/Descargas.html) installed, or Cl@ve Firma. You'll use it to sign the registration form electronically.
+- **An active email address.** Your credentials are emailed here, so make sure you can access it.
+- **Owner data:** NIF/CIF, full name or business name, address, and contact details.
+- **Property data:** full address, capacity (number of guests), activity type, and your tourism licence / registration number if your region requires one.
+- **Pop-ups enabled** in your browser (the signing window opens in a pop-up).
+
+:::caution
+**Catalonia and the Basque Country use different systems.** Properties in Catalonia register with the Mossos d'Esquadra, and properties in the Basque Country with the Ertzaintza — not with SES Hospedajes. This guide covers the national SES Hospedajes portal used everywhere else.
+:::
+
+## Step 1 — Access the portal
+
+1. Go to the Ministry of Interior's electronic office: [sede.interior.gob.es](https://sede.interior.gob.es).
+2. Open the **Hospedajes y alquiler de vehículos** section and click the **Acceso** button in **Acceso al registro de establecimientos y entidades**.
+3. Authenticate with your **digital certificate, DNIe, or Cl@ve**.
+
+## Step 2 — Verify your email
+
+Open your **profile** and confirm the email address on file is correct and one you can access. Your registration number and credentials are sent to this address — if it's wrong, you won't receive them.
+
+## Step 3 — Start the registration form
+
+1. From the home screen, click **Rellenar formulario** (Fill in form).
+2. Choose whether you're registering **in your own name** (individual owner) or **as a company representative / manager**.
+
+## Step 4 — Complete the form and enable web-service submission
+
+Everything in this step happens on the same screen.
+
+First, fill in the form sections that apply to your profile:
+
+- **Companies / professionals:** Anexo I sections **A-1** (business data) and **A-2** (establishment details).
+- **Individual owners:** Anexo I sections **B-1** (owner data) and **B-2** (property details).
+
+Complete every mandatory field, without abbreviations or placeholder values.
+
+On this same form, enable automatic submission:
+
+1. Tick the box **Envío de comunicaciones por servicio web** (send communications via web service).
+2. Enter an **error-notification email** where the system should report submission problems.
+
+:::caution
+**Ticking "Envío de comunicaciones por servicio web" is essential.** Without it you can still register your property, but you'll only be able to submit guest data manually on the portal — Kasify will not be able to send it automatically. Make sure this box is checked before continuing.
+:::
+
+## Step 5 — Add your properties
+
+1. Enter each property's data and click **Añadir a la lista** (Add to list).
+2. Repeat for every property you manage.
+
+:::tip
+Register **one or two properties first** and complete the signing step below to confirm everything works, then come back and add the rest.
+:::
+
+## Step 6 — Review and sign
+
+1. Review all the data you entered for accuracy.
+2. Click **Firmar** (Sign) and complete the electronic signature with **AutoFirma** or **Cl@ve Firma**.
+3. **Save the PDF confirmation** the portal generates.
+
+## Step 7 — Receive your credentials
+
+Shortly after signing, you'll receive **a single email from `no-reply_hospedajes@ses.mir.es`** confirming the registration. It contains everything you need:
+
+| Item | Example | What it's for |
+|---|---|---|
+| Registration number | `REGAGE24e00012345678` | Your submission's registry reference. |
+| Código de arrendador | `0000123456` | Your 10-digit landlord code (shown with your name and NIF). |
+| Establishment code(s) | `0000098765` | One code per registered property (shown with the property name). |
+| Web-service username | `12345678Z` + `WS` | Your NIF followed by `WS`. Used by Kasify. |
+| Web-service password | *(system-generated)* | Used by Kasify. May contain special characters — copy it exactly. |
+
+The same email also links to the portal's consultation and submission module, which you can open either with your **digital certificate** or with a **username/password**.
+
+:::caution
+Keep this email. The web-service username and password are what Kasify needs, and the password is not shown again anywhere. If it doesn't arrive, check your spam folder and confirm the email on your profile (Step 2).
+:::
+
+## Next step
+
+You now have everything Kasify needs. Continue with [Configuration](/en/setup/ses-hospedajes/configuration) to connect your SES credentials in Kasify.
+
+## Troubleshooting
+
+- **The credential email never arrived:** check your spam folder, verify the email on your profile (Step 2), and if needed restart the registration.
+- **AutoFirma won't sign:** update AutoFirma (and Java if applicable), try a different browser, or use Cl@ve Firma instead.
+- **Portal login vs. web-service credentials:** the portal login uses your **NIF** (set a password via *"He olvidado mi contraseña"*), while the **web-service** username (NIF + `WS`) and password are the ones Kasify needs and arrive in the registration email. If you didn't enable web-service submission (Step 4), edit your registration to turn it on.

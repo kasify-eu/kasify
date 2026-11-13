@@ -1,0 +1,105 @@
+---
+title: Alta en SES Hospedajes
+navigation_label: Alta
+---
+
+Antes de que Kasify pueda enviar los partes de viajeros en tu nombre, tu alojamiento debe estar registrado en **SES Hospedajes**, la plataforma del Ministerio del Interior para la comunicación de datos de huéspedes (Real Decreto 933/2021). Es un alta que se realiza una sola vez, directamente en el portal oficial.
+
+Esta guía te acompaña en el alta de tu alojamiento y en la obtención de las credenciales que después introducirás en Kasify. Una vez las tengas, sigue [Integración con SES Hospedajes](/es/setup/ses-hospedajes/configuration) para conectarlo todo.
+
+:::info
+Este registro se hace **una vez por titular**, en el portal oficial, no dentro de Kasify. Al terminar dispondrás de un **código de arrendador** y de unas **credenciales de servicio web** que Kasify utiliza para enviar los partes automáticamente.
+:::
+
+## Antes de empezar
+
+Ten preparado lo siguiente. Todo lo que aparece aquí es gratuito.
+
+- **Un método de identificación digital:** certificado digital, DNIe (DNI electrónico) o [Cl@ve](https://clave.gob.es).
+- **Software de firma:** [AutoFirma](https://firmaelectronica.gob.es/Home/Descargas.html) instalado, o Cl@ve Firma. Lo usarás para firmar electrónicamente el formulario de alta.
+- **Un correo electrónico activo.** Las credenciales se envían a esa dirección, así que asegúrate de tener acceso.
+- **Datos del titular:** NIF/CIF, nombre completo o razón social, dirección y datos de contacto.
+- **Datos del alojamiento:** dirección completa, capacidad (número de huéspedes), tipo de actividad y número de licencia / registro turístico si tu comunidad lo exige.
+- **Ventanas emergentes habilitadas** en el navegador (la ventana de firma se abre como pop-up).
+
+:::caution
+**Cataluña y el País Vasco usan sistemas distintos.** Los alojamientos de Cataluña se registran con los Mossos d'Esquadra, y los del País Vasco con la Ertzaintza, no en SES Hospedajes. Esta guía cubre el portal nacional de SES Hospedajes, que se usa en el resto del territorio.
+:::
+
+## Paso 1 — Acceder al portal
+
+1. Entra en la sede electrónica del Ministerio del Interior: [sede.interior.gob.es](https://sede.interior.gob.es).
+2. Abre la sección **Hospedajes y alquiler de vehículos** y haz clic en el botón **Acceso** de la sección **Acceso al registro de establecimientos y entidades**.
+3. Identifícate con tu **certificado digital, DNIe o Cl@ve**.
+
+## Paso 2 — Verificar tu correo electrónico
+
+Abre tu **perfil** y comprueba que la dirección de correo es correcta y tienes acceso a ella. Tu número de registro y tus credenciales se envían a esa dirección; si es incorrecta, no los recibirás.
+
+## Paso 3 — Iniciar el formulario de alta
+
+1. Desde la pantalla de inicio, pulsa **Rellenar formulario**.
+2. Indica si te registras **a tu nombre** (titular particular) o **como representante / gestor de una empresa**.
+
+## Paso 4 — Completar el formulario y activar el envío por servicio web
+
+Todo lo de este paso ocurre en la misma pantalla.
+
+Primero, rellena las secciones del formulario que correspondan a tu perfil:
+
+- **Empresas / profesionales:** Anexo I, secciones **A-1** (datos de la empresa) y **A-2** (datos del establecimiento).
+- **Titulares particulares:** Anexo I, secciones **B-1** (datos del titular) y **B-2** (datos del alojamiento).
+
+Cubre todos los campos obligatorios, sin abreviaturas ni datos provisionales.
+
+En este mismo formulario, activa el envío automático:
+
+1. Marca la casilla **Envío de comunicaciones por servicio web**.
+2. Introduce un **correo de aviso de errores** donde el sistema notificará los problemas de envío.
+
+:::caution
+**Marcar "Envío de comunicaciones por servicio web" es fundamental.** Sin esta casilla podrás dar de alta el alojamiento, pero solo podrás comunicar los partes manualmente en el portal: Kasify no podrá enviarlos automáticamente. Asegúrate de dejarla marcada antes de continuar.
+:::
+
+## Paso 5 — Añadir tus alojamientos
+
+1. Introduce los datos de cada alojamiento y pulsa **Añadir a la lista**.
+2. Repite el proceso con cada alojamiento que gestiones.
+
+:::tip
+Da de alta **uno o dos alojamientos primero** y completa el paso de firma para confirmar que todo funciona; después vuelve y añade el resto.
+:::
+
+## Paso 6 — Revisar y firmar
+
+1. Revisa que todos los datos introducidos sean correctos.
+2. Pulsa **Firmar** y completa la firma electrónica con **AutoFirma** o **Cl@ve Firma**.
+3. **Guarda el PDF de confirmación** que genera el portal.
+
+## Paso 7 — Recibir tus credenciales
+
+Poco después de firmar recibirás **un único correo de `no-reply_hospedajes@ses.mir.es`** confirmando el registro. Contiene todo lo que necesitas:
+
+| Dato | Ejemplo | Para qué sirve |
+|---|---|---|
+| Número de registro | `REGAGE24e00012345678` | Referencia de registro de tu solicitud. |
+| Código de arrendador | `0000123456` | Tu código de arrendador de 10 dígitos (aparece con tu nombre y NIF). |
+| Código(s) de establecimiento | `0000098765` | Un código por cada alojamiento registrado (aparece con el nombre del alojamiento). |
+| Usuario de servicio web | `12345678Z` + `WS` | Tu NIF seguido de `WS`. Es el que usa Kasify. |
+| Contraseña de servicio web | *(generada por el sistema)* | La que usa Kasify. Puede contener caracteres especiales: cópiala tal cual. |
+
+El mismo correo incluye además un enlace al módulo de consulta y envío de comunicaciones del portal, al que puedes acceder con **certificado electrónico** o con **usuario/contraseña**.
+
+:::caution
+Guarda este correo. El usuario y la contraseña de servicio web son los que necesita Kasify, y la contraseña no se vuelve a mostrar en ningún sitio. Si no te llega, revisa la carpeta de spam y comprueba el correo de tu perfil (Paso 2).
+:::
+
+## Siguiente paso
+
+Ya tienes todo lo que Kasify necesita. Continúa con [Configuración](/es/setup/ses-hospedajes/configuration) para conectar tus credenciales SES en Kasify.
+
+## Solución de problemas
+
+- **No llega el correo con las credenciales:** revisa la carpeta de spam, verifica el correo de tu perfil (Paso 2) y, si es necesario, repite el alta.
+- **AutoFirma no firma:** actualiza AutoFirma (y Java si procede), prueba con otro navegador o utiliza Cl@ve Firma.
+- **Acceso al portal frente a credenciales de servicio web:** el acceso al portal usa tu **NIF** (crea una contraseña con *"He olvidado mi contraseña"*), mientras que el usuario (NIF + `WS`) y la contraseña del **servicio web** son los que necesita Kasify y llegan en el correo de registro. Si no activaste el envío por servicio web (Paso 4), edita tu registro para activarlo.

@@ -1,0 +1,20 @@
+{
+  "code": "SUCCESS",
+  "msg": "success",
+  "data": {
+    "id": "test-visitor-123",
+    "first_name": "John",
+    "last_name": "Doe",
+    "status": "UPCOMING",
+    "inviter_id": "user-123",
+    "inviter_name": "Admin User",
+    "mobile_phone": "+1234567890",
+    "remarks": "Test visitor",
+    "email": "john.doe@example.com",
+    "visitor_company": "Test Company",
+    "visit_reason": "Business",
+    "start_time": 1688546460,
+    "end_time": 1688572799,
+    "schedule_id": "schedule-123"
+  }
+}

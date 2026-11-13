@@ -1,0 +1,82 @@
+---
+title: Smart locks
+---
+
+Kasify integrates with smart locks to manage guest access without manual key handovers. Once a lock is assigned to a property, you can generate an access code for each booking from the booking detail itself, tied to its dates.
+
+Two integrations are currently supported:
+
+- **Nuki** (Bluetooth/Wi-Fi locks from Nuki Home Solutions).
+- **Unifi Access** (Ubiquiti controllers).
+
+Each integration is connected once per account, and then locks are assigned to the relevant properties.
+
+## Nuki
+
+**1. Create a token in Nuki**
+
+1. Sign in to [web.nuki.io](https://web.nuki.io) with your Nuki account.
+2. Open the **API** section of the menu.
+3. Generate a new token and copy it. You'll only need it for this configuration step.
+
+**2. Connect Nuki in Kasify**
+
+1. In Kasify, open **Integrations** and click **Add integration**.
+2. Pick **Nuki**.
+3. Paste the token into the form and click **Connect**.
+
+If the token is valid, Kasify calls the Nuki API, imports the locks linked to your account, and takes you to the integration detail page.
+
+**3. Assign locks to properties**
+
+On the Nuki detail page:
+
+1. Find the lock you want to assign.
+2. Click **Assign to property** and choose the property from the dropdown.
+3. Click **Assign lock**.
+
+## Unifi Access
+
+**1. Have your Unifi controller credentials ready**
+
+You need three things about the Unifi controller (UniFi OS or Network) that manages the locks:
+
+- The controller's **URL** (for example, `https://unifi.your-domain.com`).
+- A **username** and **password** with permission over Unifi Access. The account must be **local** to the Unifi Console you're working with, not a Ubiquiti SSO account. When creating it in the console:
+  - Assign the **Admin** role and tick **Restrict to Local Access Only**.
+  - Grant **Full Management** permission on **Unifi Access**.
+
+**2. Connect Unifi Access in Kasify**
+
+1. Open **Integrations** and click **Add integration**.
+2. Pick **Unifi Access**.
+3. Fill in URL, username, and password, then click **Connect**.
+
+Kasify validates the credentials against the controller and, if correct, imports the locks visible to Unifi Access.
+
+**3. Assign locks to properties**
+
+Same flow as Nuki: from the integration detail page, assign each lock to its property.
+
+## Generate access codes
+
+Codes are generated on demand from the **booking's detail page**, at the moment you decide to enable access. This lets you review the booking (guest, dates, times) before loading the code onto the lock.
+
+The generated code is valid **from the booking's check-in time to its check-out time**. Before generating it, make sure the booking reflects the guest's real arrival and departure times: if you change them afterwards, you'll need to regenerate the code so the new time window takes effect.
+
+1. Open the booking from the bookings list or the property calendar.
+2. Check (and adjust if needed) the guest's check-in and check-out times.
+3. Click **Create access codes**.
+4. Kasify talks to the lock assigned to the property and loads a code tied to the booking's dates and times.
+
+Once generated, the code appears in the booking detail and you can share it with the guest (manually or through your usual messaging flow). The code stays on the lock until its validity window ends.
+
+:::tip
+If the lock is offline or the integration (Nuki / Unifi) is unreachable at that moment, the operation fails and the booking does not get a code. Retry later from the same button.
+:::
+
+## Best practices
+
+- **Test the first generated code** after setup. Make sure the lock is online and that the code is applied before the first real arrival.
+- **Offline locks**: Nuki locks without a Bridge or Wi-Fi connection can have limitations. Check the lock status from the integration detail page.
+- **Revoke the token or credentials** from Nuki / Unifi when you stop using the integration. Removing the integration in Kasify does not invalidate the source-side credential.

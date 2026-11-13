@@ -1,0 +1,57 @@
+.mainButton {
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-weight: 600;
+    font-size: 13px;
+    border-radius: 10px;
+    letter-spacing: -0.005em;
+    border: 1px solid transparent;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+.mainButton :global(.mantine-Button-inner) {
+    gap: 7px;
+}
+
+.variantPrimary {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+.variantPrimary:hover:not(:disabled) {
+    background-color: #000000 !important;
+    color: #ffffff;
+}
+
+.variantDefault {
+    background-color: oklch(0.975 0.004 270);
+    color: oklch(0.38 0.01 270);
+}
+.variantDefault:hover:not(:disabled) {
+    background-color: oklch(0.955 0.004 270) !important;
+    color: oklch(0.18 0.01 270);
+}
+
+.variantGhost {
+    background-color: transparent;
+    color: oklch(0.55 0.008 270);
+}
+.variantGhost:hover:not(:disabled) {
+    background-color: oklch(0.975 0.004 270) !important;
+    color: oklch(0.18 0.01 270);
+}
+
+.variantDanger {
+    background-color: oklch(0.58 0.18 25);
+    color: #ffffff;
+}
+.variantDanger:hover:not(:disabled) {
+    background-color: color-mix(in oklab, oklch(0.58 0.18 25) 85%, black) !important;
+    color: #ffffff;
+}
+
+.sizeLg {
+    font-size: 14px;
+    border-radius: 12px;
+}

@@ -1,0 +1,44 @@
+---
+title: Sincronizar el calendario de Booking.com
+navigation_label: Conectar Booking.com
+---
+
+Conecta tu anuncio de Booking.com con Kasify para que las reservas se importen **automáticamente** a tu calendario. En cuanto entra una reserva en Booking.com, las fechas ocupadas aparecen en Kasify.
+
+La conexión se hace **por propiedad** y funciona en **un solo sentido**: Kasify lee el calendario de Booking.com, pero no modifica tu anuncio.
+
+## 1. Copiar el enlace del calendario en Booking.com
+
+Booking.com ofrece un enlace de exportación (formato *iCal*) para cada anuncio desde su extranet:
+
+1. Entra en la **extranet de Booking.com** y selecciona el alojamiento que quieres conectar.
+2. Abre **Tarifas y disponibilidad** y ve a **Sincronización de calendarios (iCal)**.
+3. En la sección de exportación, copia la URL del calendario. Empieza por `https://ical.booking.com/v1/export?t=…`.
+
+> Copia el enlace **de exportación** que te da Booking.com, no la dirección de la barra del navegador. Son distintos.
+
+:::info
+Para la guía paso a paso del propio Booking.com, consulta [Cómo sincronizar tus calendarios entre canales](https://partner.booking.com/en-us/help/rates-availability/extranet-calendar/how-synchronize-your-calendars-across-channels) en el Centro de ayuda para partners de Booking.com.
+:::
+
+## 2. Pegar el enlace en Kasify
+
+1. En Kasify, abre **Propiedades** y entra en la propiedad correspondiente.
+2. Pulsa **Configuración**.
+3. Ve a la sección **Integración con Booking.com**.
+4. Pega la URL en el campo **Enlace de calendario de Booking.com**.
+5. Pulsa **Guardar cambios**.
+
+También puedes hacerlo al dar de alta la propiedad, desde **Añadir propiedad**: la sección **Integración con Booking.com** está en el mismo formulario.
+
+## Cuándo aparecen las reservas
+
+La primera sincronización puede tardar **unos minutos**. A partir de ahí, Kasify vuelve a consultar el calendario de Booking.com de forma **periódica y automática** (aproximadamente cada hora), sin que tengas que hacer nada.
+
+## Consejos y resolución de problemas
+
+- **Datos del huésped.** Booking.com exporta sus reservas como bloqueos de fechas "No disponible". Por eso Kasify importa las **fechas ocupadas** de este canal, pero no los datos del huésped a través del calendario.
+- **Si no aparece ninguna reserva**, revisa que has pegado el enlace de exportación correcto. Una URL incorrecta se marca como error y no importa nada (en lugar de sincronizar cero reservas en silencio).
+- **Cada propiedad tiene su propio enlace.** Si gestionas varios alojamientos, repite el proceso en cada propiedad con el enlace de su anuncio.
+- **Para desconectar Booking.com**, borra la URL con la "x" (**Borrar URL**) junto al campo y pulsa **Guardar cambios**. Dejarán de importarse reservas nuevas de ese canal.
+- **Solo importación.** Kasify no envía tu calendario de vuelta a Booking.com; para bloquear fechas en Booking.com usa las herramientas de su extranet.

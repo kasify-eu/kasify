@@ -1,0 +1,5 @@
+⚠️ SES Hospedajes rejected the registration of a booking at {{property_name}} ({{communication_type_label}}, {{guest_name}}, {{booking_from}} → {{booking_to}}): {{error_message}}
+
+Fix the booking data and Kasify will retry the registration automatically.
+
+Review the booking: {{booking_url}}

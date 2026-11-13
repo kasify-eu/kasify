@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <ns3:consultaLoteResponse xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+      <respuesta>
+        <codigo>10100</codigo>
+        <descripcion>El codigo de lote no existe o no pertenece al usuario</descripcion>
+      </respuesta>
+    </ns3:consultaLoteResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

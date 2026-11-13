@@ -1,0 +1,11 @@
+🏠 You've been invited to {{property_name}}
+
+{{inviter_name}} added you to {{property_name}} on Kasify as {{access_level_label}}.
+
+Accept the invitation:
+{{accept_url}}
+
+Or sign in at {{dashboard_url}}, open Properties → "Join a property", and enter this code:
+{{invitation_code}}
+
+If you weren't expecting this, you can ignore this message.

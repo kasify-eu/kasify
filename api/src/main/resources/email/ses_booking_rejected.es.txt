@@ -1,0 +1,26 @@
+No se pudo registrar una reserva en SES Hospedajes
+
+El registro de viajeros (SES Hospedajes) rechazó el envío de una reserva de
+{{property_name}} por un problema con los datos comunicados.
+
+Error comunicado por SES
+--------------------------
+{{error_message}}
+
+Reserva afectada
+--------------------------
+Propiedad:     {{property_name}}
+Reserva:       {{guest_name}}
+Fechas:        {{booking_from}} -> {{booking_to}}
+Comunicación:  {{communication_type_label}}
+
+Revisa los datos de la reserva y de sus huéspedes (documento, número de
+soporte, segundo apellido, contacto…) y corrige lo que indica el error. En
+cuanto guardes la corrección, Kasify reintentará el registro automáticamente
+en menos de una hora.
+
+Revisar la reserva: {{booking_url}}
+
+— El equipo de Kasify
+
+Recibes este correo porque eres titular de esta cuenta en Kasify.

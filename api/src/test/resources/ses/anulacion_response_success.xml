@@ -1,0 +1,15 @@
+<SOAP-ENV:Envelope
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:comunicacionResponse
+                xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion"
+                xmlns="">
+            <respuesta>
+                <codigo>0</codigo>
+                <descripcion>Operacion realizada correctamente</descripcion>
+                <lote>b2c3d4e5-f6a7-8901-bcde-f23456789012</lote>
+            </respuesta>
+        </ns3:comunicacionResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

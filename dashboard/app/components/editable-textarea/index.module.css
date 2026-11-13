@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.label {
+  font-size: 11px;
+  font-weight: 500;
+  color: oklch(0.55 0.008 270);
+}
+
+.textarea {
+  width: 100%;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid oklch(0.92 0.004 270);
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: oklch(0.18 0.01 270);
+  font-family: inherit;
+  resize: none;
+  min-height: 76px;
+  line-height: 1.45;
+  transition: background 120ms, border-color 120ms;
+  outline: none;
+}
+
+.textarea:hover {
+  background: oklch(0.975 0.004 270);
+  border-color: oklch(0.92 0.004 270);
+}
+
+.textarea:focus {
+  background: #ffffff;
+  border: 1px solid oklch(0.18 0.01 270);
+  box-shadow: 0 0 0 3px color-mix(in oklab, oklch(0.18 0.01 270) 8%, transparent);
+}
+
+.textarea:disabled {
+  color: oklch(0.38 0.01 270);
+  background: transparent;
+  cursor: default;
+}
+
+.textarea::placeholder {
+  color: oklch(0.72 0.006 270);
+}

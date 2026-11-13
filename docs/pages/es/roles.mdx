@@ -1,0 +1,45 @@
+---
+title: Roles y permisos
+---
+
+Kasify usa un sistema de roles **a nivel de propiedad**. El rol determina qué información puede ver un usuario y qué acciones puede realizar sobre una propiedad concreta. Los roles se asignan al invitar a una persona a una propiedad y, cuando aplica, se combinan con un **servicio** que indica el tipo de tarea que realiza.
+
+## Niveles de acceso
+
+| Rol | Visibilidad de reservas | Datos personales del huésped | Tareas | Operaciones de escritura |
+|---|---|---|---|---|
+| **Propietario** | Completa | Sí | Todas | Todas |
+| **Manager** | Completa | Sí | Todas | Parciales |
+| **Personal (Staff)** | Completa | No | Asignadas según su servicio | Limitadas a tareas |
+| **Contratista (Contractor)** | Sin acceso | No | Solo las asignadas | Limitadas a tareas |
+
+### Propietario
+Es la persona que crea la cuenta. Tiene control absoluto sobre la cuenta, las propiedades, las integraciones, la facturación y los miembros del equipo. Algunos campos sensibles a nivel de cuenta solo son visibles para el propietario.
+
+### Manager
+Persona de confianza que ayuda a operar una o varias propiedades. Ve todas las reservas con sus datos personales, gestiona tareas y puede realizar la mayoría de operaciones de escritura sobre las propiedades a las que tiene acceso. No accede a campos exclusivos del propietario, como la configuración global de la cuenta o los datos de facturación.
+
+### Personal (Staff)
+Miembro habitual del equipo —por ejemplo, una limpiadora o un técnico interno—. Ve todas las reservas de las propiedades en las que ha sido invitado, pero **sin los datos personales del huésped** (nombre, contactos, documentos). Trabaja sobre las tareas que se le asignan según su servicio.
+
+### Contratista (Contractor)
+Colaborador externo con el acceso más restringido. **No ve el listado de reservas**: solo accede a las tareas que se le asignan explícitamente. En las tareas de limpieza recibe el contexto mínimo de la reserva relacionada (fechas, número de huéspedes, instrucciones), nunca los datos personales del huésped.
+
+## Servicios de propiedad
+
+Para los roles de **Personal** y **Contratista**, además del nivel de acceso se asigna un **servicio** que define el tipo de trabajo que realizan en una propiedad concreta:
+
+| Servicio | Descripción |
+|---|---|
+| **Limpieza** | Limpieza entre estancias, rotación de ropa de cama y reposición |
+| **Mantenimiento** | Reparaciones, revisiones y sustitución de elementos |
+| **Piscina** | Mantenimiento de la piscina |
+| **Jardinería** | Cuidado de zonas verdes y exteriores |
+
+El **Manager** no tiene servicio asociado: su acceso es transversal a todas las áreas de la propiedad.
+
+## Cómo se asignan los roles
+
+Los roles se conceden mediante **invitaciones por propiedad**. Desde la sección de equipo de cada propiedad puedes invitar a una persona indicando su nivel de acceso y, si procede, su servicio. La persona recibe un enlace, crea su cuenta y queda vinculada a la propiedad con los permisos definidos.
+
+Una misma persona puede tener distintos roles en distintas propiedades.

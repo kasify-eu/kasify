@@ -1,0 +1,14 @@
+<SOAP-ENV:Envelope
+        xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <ns3:comunicacionResponse
+                xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion"
+                xmlns="">
+            <respuesta>
+                <codigo>10200</codigo>
+                <descripcion>Error en la validacion de los datos de entrada</descripcion>
+            </respuesta>
+        </ns3:comunicacionResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

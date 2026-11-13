@@ -1,0 +1,31 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header/>
+  <SOAP-ENV:Body>
+    <ns3:consultaLoteResponse xmlns:ns3="http://www.soap.servicios.hospedajes.mir.es/comunicacion" xmlns="">
+      <respuesta>
+        <codigo>0</codigo>
+        <descripcion>Ok</descripcion>
+      </respuesta>
+      <resultado>
+        <lote>LOTE-RH-OK</lote>
+        <tipoComunicacion>RH</tipoComunicacion>
+        <tipoOperacion>A</tipoOperacion>
+        <fechaPeticion>2026-06-19 15:51:59</fechaPeticion>
+        <fechaProcesamiento>2026-06-19 15:54:56</fechaProcesamiento>
+        <codigoEstado>1</codigoEstado>
+        <descEstado>Lote tramitado sin errores</descEstado>
+        <identificadorUsuario>12345678ZWS</identificadorUsuario>
+        <nombreUsuario>JOHN DOE</nombreUsuario>
+        <codigoArrendador>0000145750</codigoArrendador>
+        <aplicacion>Kasify</aplicacion>
+        <resultadoComunicaciones>
+          <resultadoComunicacion>
+            <orden>1</orden>
+            <anulada>false</anulada>
+            <codigoComunicacion>RH-CODIGO-9999</codigoComunicacion>
+          </resultadoComunicacion>
+        </resultadoComunicaciones>
+      </resultado>
+    </ns3:consultaLoteResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

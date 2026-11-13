@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:com="http://www.soap.servicios.hospedajes.mir.es/comunicacion">
+
+    <soapenv:Header/>
+
+    <soapenv:Body>
+
+        <com:comunicacionRequest>
+
+            <peticion>
+
+                <cabecera>
+
+                    <codigoArrendador>0000000001</codigoArrendador>
+
+                    <aplicacion>Kasify</aplicacion>
+
+                    <tipoOperacion>A</tipoOperacion>
+
+                    <tipoComunicacion>PV</tipoComunicacion>
+
+                </cabecera>
+
+                <solicitud>UEsDBBQACAgIANqjkVwAAAAAAAAAAAAAAAANAAAAc29saWNpdHVkLnhtbG1UwW6jMBC99ysQdzCmTZtGjqu2m26yhxQ12T3szYFp4hXYyDabfv4aKLFhKyFZ8+a9sT1vDHn4qMrgLyjNpViGOE7CAEQuCy6Oy/Dn/iWahw/0irDSLGowPLe0wEqEXlhoGZ6MqRcInc/nWMAxPkldQ8H+gI4rrmLQyLJYxpSB9ZAK6VUQEC1LW8w0RRvZuN3yKFfasEMJOa84CCPpCqfXNzOCvs4OyqoRPGft0XqoA4VRbOB0kIJ3UPZunNHHzdvT9ilKEkyQBzvuO+Qn9jzUSJP0NkpuInxH0DgzUaxauGAXQZrs8WyRJPb7VA6MiXDHSu7rZnuMR7pPgpOJpsqsa1IwTVOC/PBC6mlrduCm6w5oijvqCPLpXBhQAgw1qgGCLqHbt2ZHOZIYXsusBV/3b687gi6x0yBf1Jo57h6p+5P7XsmS/tpYc+zq3VlWBwX0R8OEvUYfuCyrobRNkph+Z8raSZBDHKs93jeZN1U3QdvNS39iB41aDMrLdLN4ezf/3fVwlJrYuWWXGcX390mU4KgdtWnOqTR8SLomqFsdXHAFuT/XE/QZBTtQigkZ2PJfs/unk0n7dkqazruZH2E+uWZc09Uuay3j2rfwv+KW4tvWFh2/Q3sb98YJ8v8g9B9QSwcIBgB0L+EBAAB3BAAAUEsBAhQAFAAICAgA2qORXAYAdC/hAQAAdwQAAA0AAAAAAAAAAAAAAAAAAAAAAHNvbGljaXR1ZC54bWxQSwUGAAAAAAEAAQA7AAAAHAIAAAAA</solicitud>
+
+            </peticion>
+
+        </com:comunicacionRequest>
+
+    </soapenv:Body>
+
+</soapenv:Envelope>
+
+
+
+
+-----
+<alt:peticion xmlns:alt="http://www.neg.hospedajes.mir.es/altaParteHospedaje">
+
+<solicitud>
+
+    <codigoEstablecimiento>E12345</codigoEstablecimiento>
+
+    <comunicacion>
+
+        <contrato>
+
+            <referencia>AIRBNB-001</referencia>
+
+            <fechaContrato>2026-04-17</fechaContrato>
+
+            <fechaEntrada>2026-04-20T15:00:00</fechaEntrada>
+
+            <fechaSalida>2026-04-25T11:00:00</fechaSalida>
+
+            <numPersonas>2</numPersonas>
+
+            <numHabitaciones>1</numHabitaciones>
+
+            <internet>true</internet>
+
+            <pago>
+
+                <tipoPago>OTROS</tipoPago>
+
+            </pago>
+
+        </contrato>
+
+        <persona>
+
+            <rol>VI</rol>
+
+            <nombre>Juan</nombre>
+
+            <apellido1>Garcia</apellido1>
+
+            <tipoDocumento>NIF</tipoDocumento>
+
+            <numeroDocumento>12345678Z</numeroDocumento>
+
+            <fechaNacimiento>1990-01-01</fechaNacimiento>
+
+            <sexo>H</sexo>
+
+            <direccion>
+
+                <direccion>C/ Serrano 1</direccion>
+
+                <codigoPostal>28001</codigoPostal>
+
+                <pais>ESP</pais>
+
+            </direccion>
+
+        </persona>
+
+    </comunicacion>
+
+</solicitud>
+
+</alt:peticion>

@@ -1,0 +1,16 @@
+.mainButton {
+    transition: background-color 0.2s ease;
+    font-weight: 600;
+    border-color: #1A1A1A;
+    color: #1A1A1A;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0.04em;
+}
+
+.mainButton:hover {
+    color: #FFFFFF;
+  background-color: #323232 !important;
+}

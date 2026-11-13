@@ -1,0 +1,1 @@
+Acción necesaria: SES rechazó el código de establecimiento de {{property_name}}

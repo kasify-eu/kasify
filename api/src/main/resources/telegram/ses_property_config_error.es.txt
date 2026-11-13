@@ -1,0 +1,5 @@
+⚠️ SES Hospedajes rechazó el código de establecimiento de {{property_name}} (código {{establishment_code}}): {{error_message}}
+
+Los envíos al registro de viajeros de esta propiedad quedan en pausa hasta que corrijas el código. El resto de tus propiedades sigue enviando con normalidad.
+
+Corrígelo aquí: {{settings_url}}

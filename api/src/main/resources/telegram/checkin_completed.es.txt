@@ -1,0 +1,5 @@
+✅ Check-in completado para {{property_name}}
+
+Todos los huéspedes previstos de la reserva de {{guest_name}} ({{checkin_from}} → {{checkin_to}}, {{guests_count}} huésped(es)) se han registrado. El check-in ya está completo.
+
+Consulta la reserva en {{dashboard_url}}.
